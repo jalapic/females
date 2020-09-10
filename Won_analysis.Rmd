@@ -1,0 +1,1729 @@
+---
+title: "Won_analysis_summary"
+---
+
+```{r setup}
+library(tidyverse)
+library(brms)
+library(viridis)
+source('functions/functions.R')
+```
+
+
+## load data
+```{r}
+rate_day<-readr::read_csv("data/ratebehavior_day.csv")
+
+rate_rank_Actor<-readr::read_csv("data/ratebehavior_rank.Actor_obs.csv") %>% 
+  group_by(Behavior,rank.Actor,day,cohortx) %>% 
+  summarize(total_n=sum(n),
+            total_obstime=sum(obstime)) %>% 
+  mutate(rate=(total_n/total_obstime)*60*60) %>% 
+  mutate(subjectID=paste(cohortx,rank.Actor,sep=""))
+
+
+# proportion of each behavior within individual 
+prop_given<-readr::read_csv("data/proportion_given.csv")
+prop_received<-readr::read_csv("data/proportion_received.csv")
+
+
+
+totalrate_rank_Actor<-readr::read_csv("data/ratebehavior_rank.Actor_obs.csv") %>% 
+  group_by(rank.Actor,day,cohortx) %>% 
+  summarize(total_n=sum(n),
+            total_obstime=sum(obstime)) %>% 
+  mutate(rate=(total_n/total_obstime)*60*60)
+
+
+rate_rank_Recipient<-readr::read_csv("data/ratebehavior_rank.Recipient_obs.csv") %>% 
+  group_by(Behavior,rank.Recipient,day,cohortx) %>% 
+  summarize(total_n=sum(n),
+            total_obstime=sum(obstime)) %>% 
+  mutate(rate=(total_n/total_obstime)*60*60) %>% 
+   mutate(subjectID=paste(cohortx,rank.Recipient,sep=""))
+
+totalrate_rank_Recipient<-readr::read_csv("data/ratebehavior_rank.Recipient_obs.csv") %>% 
+  group_by(rank.Recipient,day,cohortx) %>% 
+  summarize(total_n=sum(n),
+            total_obstime=sum(obstime)) %>% 
+  mutate(rate=(total_n/total_obstime)*60*60)
+
+
+rankestrus<-readr::read_csv("data/rankestrus.csv")
+
+glick_rank_by_day_estrus<-readr::read_csv("data/glick_rank_by_day_estrus.csv")
+
+head(glick_rank_by_day_estrus)
+glick_rank_by_day_estrus<-glick_rank_by_day_estrus %>% mutate(subjectID=paste(cohortx,Mouse.ID,sep="-"))
+head(totalrate_rank_Actor)
+head(totalrate_rank_Recipient)
+totalrate_Actor_estrus<-full_join(totalrate_rank_Actor,
+                                  glick_rank_by_day_estrus %>% mutate(rank.Actor=rank) %>% select(-rank))
+totalrate_Recipient_estrus<-full_join(totalrate_rank_Recipient,
+                                      glick_rank_by_day_estrus %>% mutate(rank.Recipient=rank) %>% select(-rank))
+
+
+rate_Actor_estrus<-full_join(rate_rank_Actor,
+                                  glick_rank_by_day_estrus %>% mutate(rank.Actor=rank) %>% select(-rank))
+rate_Recipient_estrus<-full_join(rate_rank_Recipient,
+                                      glick_rank_by_day_estrus %>% mutate(rank.Recipient=rank) %>% select(-rank))
+
+
+
+hormones_genes<-readr::read_csv("data/hormones_genes.csv")
+hgdf<-hormones_genes %>% 
+  mutate(subjectid=paste(cohortx,Mouse.ID,sep="-")) %>% 
+  select(-Mouse.ID) %>% select(-Cohort) %>% select(-State15)
+
+```
+
+
+## 1. Rate of each behavior (fighting, chasing, mounting) across group housing days
+
+```{r}
+day_fight<-rate_day %>% filter(Behavior=="Fighting")
+day_chase<-rate_day %>% filter(Behavior=="Chasing")
+day_mount<-rate_day %>% filter(Behavior=="Mounting")
+```
+
+```{r}
+hist(day_fight$propn)
+hist(day_chase$propn)
+hist(day_mount$propn)
+```
+
+```{r}
+# mod.day.fight<-brm(propn~day+(1|cohort),day_fight,family='gaussian',control = list(adapt_delta=0.95))
+# mod.day.chase<-brm(propn~day+(1|cohort),day_chase,family='gaussian',control = list(adapt_delta=0.95))
+# mod.day.mount<-brm(propn~day+(1|cohort),day_mount,family='gaussian',control = list(adapt_delta=0.95))
+
+# saveRDS(mod.day.fight,"Won_stat_RDS/mod.day.fight")
+# saveRDS(mod.day.chase,"Won_stat_RDS/mod.day.chase")
+# saveRDS(mod.day.mount,"Won_stat_RDS/mod.day.mount")
+
+mod.day.fight<-readRDS("Won_stat_RDS/mod.day.fight")
+mod.day.chase<-readRDS("Won_stat_RDS/mod.day.chase")
+mod.day.mount<-readRDS("Won_stat_RDS/mod.day.mount")
+```
+
+```{r}
+print(mod.day.fight)
+print(mod.day.chase)
+print(mod.day.mount)
+```
+
+```{r}
+plot(mod.day.fight)
+plot(mod.day.chase)
+plot(mod.day.mount)
+```
+
+
+## 2. Rate of each behavior GIVEN OR RECEIVED across social rank - see below model with estrus status analysis
+
+### 2.1 BEHAVIOR GIVEN
+```{r}
+rank_Actor_fight<-rate_rank_Actor %>% filter(Behavior=="Fighting")
+rank_Actor_chase<-rate_rank_Actor %>% filter(Behavior=="Chasing")
+rank_Actor_mount<-rate_rank_Actor %>% filter(Behavior=="Mounting")
+```
+
+```{r}
+hist(rank_Actor_fight$rate)
+hist(rank_Actor_chase$rate)
+hist(rank_Actor_mount$rate)
+```
+
+```{r}
+rank_Actor_fight %>% 
+  ggplot(.,aes(rank.Actor,rate))+geom_point()
+
+rank_Actor_chase %>% 
+  ggplot(.,aes(rank.Actor,rate))+geom_point()
+
+rank_Actor_mount %>% 
+  ggplot(.,aes(rank.Actor,rate))+geom_point()
+
+```
+
+Gamma hurdle model 
+```{r}
+# mod.rank.fight_hg_given<-brm(bf(formula= rate ~ mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           hu~mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           nl=FALSE),
+#                     data=rank_Actor_fight,
+#                     family=hurdle_gamma(link = "log"),
+#                     control = list(adapt_delta=0.95)
+#                     )
+# 
+# 
+# mod.rank.chase_hg_given<-brm(bf(formula= rate ~ mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           hu~mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           nl=FALSE),
+#                     data=rank_Actor_chase,
+#                     family=hurdle_gamma(link = "log"),
+#                     control = list(adapt_delta=0.95)
+#                     )
+# 
+# 
+# mod.rank.mount_hg_given<-brm(bf(formula= rate ~ mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           hu~mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           nl=FALSE),
+#                     data=rank_Actor_mount,
+#                     family=hurdle_gamma(link = "log"),
+#                     control = list(adapt_delta=0.95)
+#                     )
+# 
+# saveRDS(mod.rank.fight_hg_given,"Won_stat_RDS/mod.rank.fight_hg_given.RDS")
+# saveRDS(mod.rank.chase_hg_given,"Won_stat_RDS/mod.rank.chase_hg_given.RDS")
+# saveRDS(mod.rank.mount_hg_given,"Won_stat_RDS/mod.rank.mount_hg_given.RDS")
+
+mod.rank.fight_hg_given<-readRDS("Won_stat_RDS/mod.rank.fight_hg_given.RDS")
+mod.rank.chase_hg_given<-readRDS("Won_stat_RDS/mod.rank.chase_hg_given.RDS")
+mod.rank.mount_hg_given<-readRDS("Won_stat_RDS/mod.rank.mount_hg_given.RDS")
+```
+
+```{r}
+print(mod.rank.fight_hg_given)
+marginal_effects(mod.rank.fight_hg_given)
+```
+
+```{r}
+print(mod.rank.chase_hg_given)
+marginal_effects(mod.rank.chase_hg_given)
+```
+
+```{r}
+print(mod.rank.mount_hg_given)
+marginal_effects(mod.rank.mount_hg_given)
+```
+
+### 2.3 BEHAVIOR RECEIVED ~ RANK OF RECIPIENT
+
+```{r}
+rank_Recipient_fight<-rate_rank_Recipient %>% filter(Behavior=="Fighting")
+rank_Recipient_chase<-rate_rank_Recipient %>% filter(Behavior=="Chasing")
+rank_Recipient_mount<-rate_rank_Recipient %>% filter(Behavior=="Mounting")
+```
+
+```{r}
+hist(rank_Recipient_fight$rate)
+hist(rank_Recipient_chase$rate)
+hist(rank_Recipient_mount$rate)
+```
+
+```{r}
+rank_Recipient_fight %>% 
+  ggplot(.,aes(rank.Recipient,rate))+geom_point()
+
+rank_Recipient_chase %>% 
+  ggplot(.,aes(rank.Recipient,rate))+geom_point()
+
+rank_Recipient_mount %>% 
+  ggplot(.,aes(rank.Recipient,rate))+geom_point()
+
+```
+
+Gamma hurdle model 
+```{r}
+# mod.rank.fight_hg_received<-brm(bf(formula= rate ~ mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           hu~mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           nl=FALSE),
+#                     data=rank_Recipient_fight,
+#                     family=hurdle_gamma(link = "log"),
+#                     control = list(adapt_delta=0.95)
+#                     )
+# 
+# 
+# mod.rank.chase_hg_received<-brm(bf(formula= rate ~ mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           hu~mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           nl=FALSE),
+#                     data=rank_Recipient_chase,
+#                     family=hurdle_gamma(link = "log"),
+#                     control = list(adapt_delta=0.95)
+#                     )
+# 
+# 
+# mod.rank.mount_hg_received<-brm(bf(formula= rate ~ mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           hu~mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                           nl=FALSE),
+#                     data=rank_Recipient_mount,
+#                     family=hurdle_gamma(link = "log"),
+#                     control = list(adapt_delta=0.95)
+#                     )
+# 
+# 
+# saveRDS(mod.rank.fight_hg_received,"Won_stat_RDS/mod.rank.fight_hg_received.RDS")
+# saveRDS(mod.rank.chase_hg_received,"Won_stat_RDS/mod.rank.chase_hg_received.RDS")
+# saveRDS(mod.rank.mount_hg_received,"Won_stat_RDS/mod.rank.mount_hg_received.RDS")
+
+mod.rank.fight_hg_received<-readRDS("Won_stat_RDS/mod.rank.fight_hg_received.RDS")
+mod.rank.chase_hg_received<-readRDS("Won_stat_RDS/mod.rank.chase_hg_received.RDS")
+mod.rank.mount_hg_received<-readRDS("Won_stat_RDS/mod.rank.mount_hg_received.RDS")
+```
+
+```{r}
+print(mod.rank.fight_hg_received)
+marginal_effects(mod.rank.fight_hg_received)
+```
+
+```{r}
+print(mod.rank.chase_hg_received)
+marginal_effects(mod.rank.chase_hg_received)
+```
+
+```{r}
+print(mod.rank.mount_hg_received)
+marginal_effects(mod.rank.mount_hg_received)
+```
+
+
+#### Summary figure - Marginal effect plot
+
+```{r}
+#Given behavior plot
+dat_given_fight<-marginal_effects(mod.rank.fight_hg_given)$rank.Actor %>%
+  mutate(xvar=rank.Actor,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Fight") %>% 
+  as.data.frame()
+
+dat_given_chase<-marginal_effects(mod.rank.chase_hg_given)$rank.Actor %>%
+  mutate(xvar=rank.Actor,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Chase") %>% 
+  as.data.frame()
+
+dat_given_mount<-marginal_effects(mod.rank.mount_hg_given)$rank.Actor %>%
+  mutate(xvar=rank.Actor,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Mount") %>% 
+  as.data.frame()
+
+dat_given<-rbind(dat_given_fight,dat_given_chase,dat_given_mount) %>% 
+  mutate(Behavior=factor(Behavior,levels = c("Fight","Chase","Mount")))
+
+str(dat_given)
+
+# given<-ggplot(data=dat_given ,aes(xvar,yvar))+
+#   geom_line(aes(color=Behavior,group=Behavior),size=1.5,alpha=0.5)+
+#   newggtheme_with_legend+
+#   xlab("Rank of Actor")+
+#   ylab("Hourly Rate of Each Behavior")+
+#   scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12))+
+#     scale_y_continuous(breaks = c(0,0.5,1.0,1.5,2,2.5),limits = c(0,2.8))+
+#   geom_ribbon(aes(xvar,yvar,ymax=yvar+se,ymin=yvar-se,group=Behavior,fill=Behavior),alpha=0.4)+
+#   scale_color_viridis(discrete=TRUE)+
+#   scale_fill_viridis(discrete=TRUE)
+# 
+
+#Received behavior plot
+dat_received_fight<-marginal_effects(mod.rank.fight_hg_received)$rank.Recipient %>%
+  mutate(xvar=rank.Recipient,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Fight") %>% 
+  as.data.frame()
+
+dat_received_chase<-marginal_effects(mod.rank.chase_hg_received)$rank.Recipient %>%
+  mutate(xvar=rank.Recipient,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Chase") %>% 
+  as.data.frame()
+
+dat_received_mount<-marginal_effects(mod.rank.mount_hg_received)$rank.Recipient %>%
+  mutate(xvar=rank.Recipient,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Mount") %>% 
+  as.data.frame()
+
+dat_received<-rbind(dat_received_fight,dat_received_chase,dat_received_mount) %>% 
+  mutate(Behavior=factor(Behavior,levels = c("Fight","Chase","Mount")))
+
+str(dat_received)
+
+# received<-ggplot(data=dat_received ,aes(xvar,yvar))+
+#   geom_line(aes(color=Behavior,group=Behavior),size=1.5,alpha=0.5)+
+#   newggtheme_with_legend+
+#   xlab("Rank of Recipient")+
+#   ylab("Hourly Rate of Each Behavior")+
+#   scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12))+
+#   scale_y_continuous(breaks = c(0,0.5,1.0,1.5,2,2.5),limits = c(0,2.8))+
+#   geom_ribbon(aes(xvar,yvar,ymax=yvar+se,ymin=yvar-se,group=Behavior,fill=Behavior),alpha=0.4)+
+#   scale_color_viridis(discrete=TRUE)+
+#   scale_fill_viridis(discrete=TRUE)
+# 
+# grid.arrange(given,received,ncol=2)
+
+
+dat_each_behav<-rbind(dat_given %>% mutate(direction="Given"),
+                      dat_received %>% mutate(direction="Received"))
+
+
+
+both<-ggplot(data=dat_each_behav ,aes(xvar,exp(yvar)))+
+  geom_line(aes(color=Behavior,group=Behavior),size=1.5,alpha=0.5)+
+  newggtheme_with_legend+
+  xlab("Final Social Rank")+
+  ylab("Hourly Rate of Each Behavior")+
+  scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12))+
+  #scale_y_continuous(breaks = c(0,0.5,1.0,1.5,2,2.5),limits = c(0,2.5))+
+  geom_ribbon(aes(xvar,exp(yvar),ymax=exp(yvar+se),ymin=exp(yvar-se),group=Behavior,fill=Behavior),alpha=0.4)+
+  scale_color_viridis(discrete=TRUE)+
+  scale_fill_viridis(discrete=TRUE)+
+  facet_wrap(~direction,scales = "free_y")
+
+print(both)
+
+
+
+```
+
+
+
+### proportion of each behavior utilized across rank 
+
+```{r}
+head(prop_given)
+head(prop_received)
+prop_given %>% mutate(subjectID=paste(cohort,Actor,sep="-"))
+```
+
+```{r}
+multinom.prop_given<-brm(State~mo(rank)+(1|cohort)+(1|subjectID),prop_given,
+                   family = categorical(link = "logit"),control = list(adapt_delta=0.95))
+```
+
+
+
+## 3. Estrus state analysis
+
+### 3.1 Does the rank affect how much likely a mouse is in a certain estrus state?
+Multinomial model with monotonic effect function in the model 
+```{r}
+# multinom.mod2_a<-brm(State~mo(rank)+(1|cohortx)+(1|subjectID),data=rankestrus_a,
+#                    family = categorical(link = "logit"),control = list(adapt_delta=0.95))
+# 
+# multinom.mod2_b<-brm(State~mo(rank)+(1|cohortx)+(1|subjectID),data=rankestrus_b,
+#                    family = categorical(link = "logit"),control = list(adapt_delta=0.95))
+# 
+# multinom.mod2_c<-brm(State~mo(rank)+(1|cohortx)+(1|subjectID),data=rankestrus_c,
+#                    family = categorical(link = "logit"),control = list(adapt_delta=0.95))
+# 
+# multinom.mod2_d<-brm(State~mo(rank)+(1|cohortx)+(1|subjectID),data=rankestrus_d,
+#                    family = categorical(link = "logit"),control = list(adapt_delta=0.95))
+```
+
+```{r}
+# saveRDS(multinom.mod2_a,"Won_stat_RDS/multinom.mod2_a.RDS")
+# saveRDS(multinom.mod2_b,"Won_stat_RDS/multinom.mod2_b.RDS")
+# saveRDS(multinom.mod2_c,"Won_stat_RDS/multinom.mod2_c.RDS")
+# saveRDS(multinom.mod2_d,"Won_stat_RDS/multinom.mod2_d.RDS")
+
+multinom.mod2_a<-readRDS("Won_stat_RDS/multinom.mod2_a.RDS")
+multinom.mod2_b<-readRDS("Won_stat_RDS/multinom.mod2_b.RDS")
+multinom.mod2_c<-readRDS("Won_stat_RDS/multinom.mod2_c.RDS")
+multinom.mod2_d<-readRDS("Won_stat_RDS/multinom.mod2_d.RDS")
+```
+
+```{r}
+summary(multinom.mod2_a)
+```
+
+```{r}
+summary(multinom.mod2_b)
+```
+
+```{r}
+summary(multinom.mod2_c)
+```
+
+```{r}
+summary(multinom.mod2_d)
+```
+
+
+## 3.2. behavior~estrus/rank
+
+
+```{r}
+rate_Actor_estrus %>% 
+  filter(!is.na(Behavior)) %>% 
+  ggplot(.,aes(rank.Actor,rate))+
+  geom_point()+
+  facet_grid(State~Behavior)
+
+
+head(rate_Actor_estrus)
+
+rate_Recipient_estrus %>%
+  filter(Behavior=="Mounting") %>%
+  group_by(rank.Recipient,cohortx,State) %>%
+  summarise(total_n = sum(total_n,na.rm=T), total_obstime=sum(total_obstime,na.rm=T), rate = (60*60*total_n/total_obstime)) %>%
+  group_by(rank.Recipient,State) %>%
+  summarise(median = median(rate), lqr = quantile(rate,.25), uqr = quantile(rate,.75)) %>%
+  filter(!is.na(State)) -> thing
+
+ggplot(thing, aes(x = rank.Recipient))+
+ geom_ribbon(aes(ymin = lqr, ymax = uqr, fill = State),alpha=.3) +
+  geom_line(aes(y = median, color=State)) +
+  theme_minimal() +
+  ylab("Rate of Mounting per hour") +
+  scale_x_continuous(breaks=1:12) +
+  xlab("Rank")
+
+
+rate_Recipient_estrus %>%
+  filter(Behavior=="Mounting") %>%
+  group_by(rank.Recipient,cohortx,State) %>%
+  summarise(total_n = sum(total_n,na.rm=T), total_obstime=sum(total_obstime,na.rm=T), rate = (60*60*total_n/total_obstime)) %>%
+  group_by(rank.Recipient,State) -> blah
+
+ggplot(blah, aes(x=State, y=rate,fill=State,color=State)) + geom_boxplot(alpha=.3)+geom_point() 
+```
+
+```{r}
+rate_Actor_estrus %>% 
+  filter(is.na(Behavior)) %>% 
+  arrange(cohortx,subjectID) %>% 
+  
+```
+
+```{r}
+# totalrate_Actor_estrus<-totalrate_Actor_estrus %>% 
+#   filter(!is.na(State)) %>% 
+#   filter(!is.na(rank.Actor)) %>% 
+#   filter(!is.na(glick_rank_by_day))
+# totalrate_Recipient_estrus<-totalrate_Recipient_estrus %>% 
+#   filter(!is.na(State)) %>% 
+#   filter(!is.na(rank.Recipient)) %>% 
+#   filter(!is.na(glick_rank_by_day))
+# 
+# mod.Actor_estrus_hg0x<-brm(bf(formula= rate ~ mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                              hu~mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                              nl=FALSE),
+#                           data=totalrate_Actor_estrus,
+#                           family=hurdle_gamma(link = "log"),
+#                           control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# mod.Actor_estrus_hg1x<-brm(bf(formula= rate ~ State+(1|day)+(1|cohortx)+(1|subjectID),
+#                              hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                              nl=FALSE),
+#                           data=totalrate_Actor_estrus,
+#                           family=hurdle_gamma(link = "log"),
+#                           control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Actor_estrus_hg2x<-brm(bf(formula= rate ~ mo(rank.Actor)*State+(1|day)+(1|cohortx)+(1|subjectID),
+#                              hu~mo(rank.Actor)+(1|day)+(1|cohortx)+(1|subjectID),
+#                              nl=FALSE),
+#                           data=totalrate_Actor_estrus,
+#                           family=hurdle_gamma(link = "log"),
+#                           control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Actor_estrus_hg3x<-brm(bf(formula= rate ~ mo(glick_rank_by_day)*State+(1|day)+(1|cohortx)+(1|subjectID),
+#                               hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                               nl=FALSE),
+#                            data=totalrate_Actor_estrus,
+#                            family=hurdle_gamma(link = "log"),
+#                            control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# mod.Actor_estrus_hg4x<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+State+(1|day)+(1|cohortx)+(1|subjectID),
+#                               hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                               nl=FALSE),
+#                            data=totalrate_Actor_estrus,
+#                            family=hurdle_gamma(link = "log"),
+#                            control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Actor_estrus_hg5x<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                               hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                               nl=FALSE),
+#                            data=totalrate_Actor_estrus,
+#                            family=hurdle_gamma(link = "log"),
+#                            control = list(adapt_delta=0.95)
+# )
+
+# mod.Recipient_estrus_hg0x<-brm(bf(formula= rate ~ mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                  hu~mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                  nl=FALSE),
+#                               data=totalrate_Recipient_estrus,
+#                               family=hurdle_gamma(link = "log"),
+#                               control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Recipient_estrus_hg1x<-brm(bf(formula= rate ~ State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                  hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                  nl=FALSE),
+#                               data=totalrate_Recipient_estrus,
+#                               family=hurdle_gamma(link = "log"),
+#                               control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Recipient_estrus_hg2x<-brm(bf(formula= rate ~ mo(rank.Recipient)*State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                  hu~mo(rank.Recipient)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                  nl=FALSE),
+#                               data=totalrate_Recipient_estrus,
+#                               family=hurdle_gamma(link = "log"),
+#                               control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# mod.Recipient_estrus_hg3x<-brm(bf(formula= rate ~ mo(glick_rank_by_day)*State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=totalrate_Recipient_estrus,
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# mod.Recipient_estrus_hg4x<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=totalrate_Recipient_estrus,
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Recipient_estrus_hg5x<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=totalrate_Recipient_estrus,
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# saveRDS(mod.Actor_estrus_hg0x,"Won_stat_RDS/mod.Actor_estrus_hg0x.RDS")
+# saveRDS(mod.Actor_estrus_hg1x,"Won_stat_RDS/mod.Actor_estrus_hg1x.RDS")
+# saveRDS(mod.Actor_estrus_hg2x,"Won_stat_RDS/mod.Actor_estrus_hg2x.RDS")
+# saveRDS(mod.Actor_estrus_hg3x,"Won_stat_RDS/mod.Actor_estrus_hg3x.RDS")
+# saveRDS(mod.Actor_estrus_hg4x,"Won_stat_RDS/mod.Actor_estrus_hg4x.RDS")
+# saveRDS(mod.Actor_estrus_hg5x,"Won_stat_RDS/mod.Actor_estrus_hg5x.RDS")
+# 
+# saveRDS(mod.Recipient_estrus_hg0x,"Won_stat_RDS/mod.Recipient_estrus_hg0x.RDS")
+# saveRDS(mod.Recipient_estrus_hg1x,"Won_stat_RDS/mod.Recipient_estrus_hg1x.RDS")
+# saveRDS(mod.Recipient_estrus_hg2x,"Won_stat_RDS/mod.Recipient_estrus_hg2x.RDS")
+# saveRDS(mod.Recipient_estrus_hg3x,"Won_stat_RDS/mod.Recipient_estrus_hg3x.RDS")
+# saveRDS(mod.Recipient_estrus_hg4x,"Won_stat_RDS/mod.Recipient_estrus_hg4x.RDS")
+# saveRDS(mod.Recipient_estrus_hg5x,"Won_stat_RDS/mod.Recipient_estrus_hg5x.RDS")
+
+mod.Actor_estrus_hg0x <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg0x.RDS")
+mod.Actor_estrus_hg1x <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg1x.RDS")
+mod.Actor_estrus_hg2x <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg2x.RDS")
+mod.Actor_estrus_hg3x <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg3x.RDS")
+mod.Actor_estrus_hg4x <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg4x.RDS")
+mod.Actor_estrus_hg5x <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg5x.RDS")
+
+mod.Recipient_estrus_hg0x <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg0x.RDS")
+mod.Recipient_estrus_hg1x <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg1x.RDS")
+mod.Recipient_estrus_hg2x <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg2x.RDS")
+mod.Recipient_estrus_hg3x <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg3x.RDS")
+mod.Recipient_estrus_hg4x <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg4x.RDS")
+mod.Recipient_estrus_hg5x <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg5x.RDS")
+
+```
+
+
+```{r}
+# Actor_weights<-model_weights(mod.Actor_estrus_hg0x,
+#                              mod.Actor_estrus_hg1x,
+#                              mod.Actor_estrus_hg2x,
+#                              mod.Actor_estrus_hg3x,
+#                              mod.Actor_estrus_hg4x,
+#                              mod.Actor_estrus_hg5x)
+# 
+# Recipient_weights<-model_weights(mod.Recipient_estrus_hg0x,
+#                                  mod.Recipient_estrus_hg1x,
+#                                  mod.Recipient_estrus_hg2x,
+#                                  mod.Recipient_estrus_hg3x,
+#                                  mod.Recipient_estrus_hg4x,
+#                                  mod.Recipient_estrus_hg5x)
+
+# saveRDS(Actor_weights,"Won_stat_RDS/Actor_weights.RDS")
+# saveRDS(Recipient_weights,"Won_stat_RDS/Recipient_weights.RDS")
+
+Actor_weights<-readRDS("Won_stat_RDS/Actor_weights.RDS")
+Recipient_weights<-readRDS("Won_stat_RDS/Recipient_weights.RDS")
+
+options(digits = 3)
+options(scipen = 4)
+
+Actor_weights
+
+Recipient_weights
+```
+
+
+
+0: rank.Actor
+1: State
+2: rank.Actor*State 
+3: glicko*State
+4: glicko+State
+5: glicko 
+
+```{r}
+print(mod.Actor_estrus_hg1x)
+marginal_effects(mod.Actor_estrus_hg1x)
+```
+
+
+# function to add later 
+```{r}
+estrus_comparison<- function(model,mydata){
+coefs <- as.matrix(model)[, c(1,3,4,5)]
+  newdata <- data.frame(State = levels(as.factor(mydata$State)))
+  # A Tukeys contrast matrix
+  
+  # table(newdata$x) - gets the number of replicates of each level
+  tuk.mat <- multcomp::contrMat(n = table(newdata$State), type = "Tukey")
+  Xmat <- model.matrix(~State, data = newdata)
+  pairwise.mat <- tuk.mat %*% Xmat
+
+
+my_posterior<-  coefs %*% t(pairwise.mat) %>% as.data.frame() %>% gather(comps,value,1:4)
+
+comps = broom::tidyMCMC(coefs %*% t(pairwise.mat), conf.int = TRUE, conf.method = "HPDinterval") %>% mutate(Sig=ifelse(conf.low*conf.high>0,"Sig","-")) %>% 
+    mutate(poster=paste(round(estimate,2),
+                        paste("[",round(conf.low,2),", ",round(conf.high,2),"]",sep="")))
+colnames(comps)<-c("term" , "Estimate","std.error", "Lower CI",  "High CI" ,"Sig"    ,   "poster"   )
+return(comps)
+}
+
+
+estrus_comparison_exp<- function(model,mydata){
+coefs <- as.matrix(model)[, c(1,3,4,5)]
+  newdata <- data.frame(State = levels(as.factor(mydata$State)))
+  # A Tukeys contrast matrix
+  
+  # table(newdata$x) - gets the number of replicates of each level
+  tuk.mat <- multcomp::contrMat(n = table(newdata$State), type = "Tukey")
+  Xmat <- model.matrix(~State, data = newdata)
+  pairwise.mat <- tuk.mat %*% Xmat
+
+
+my_posterior<-  coefs %*% t(pairwise.mat) %>% as.data.frame() %>% gather(comps,value,1:4)
+
+comps = broom::tidyMCMC(coefs %*% t(pairwise.mat), conf.int = TRUE, conf.method = "HPDinterval") %>% mutate(Sig=ifelse(conf.low*conf.high>0,"Sig","-")) %>% 
+    mutate(poster=paste(round(exp(estimate),2),
+                        paste("[",round(exp(conf.low),2),", ",round(exp(conf.high),2),"]",sep="")))
+colnames(comps)<-c("term" , "Estimate","std.error", "Lower CI",  "High CI" ,"Sig"    ,   "posterior_exp"   )
+return(comps)
+}
+
+estrus_comparison(mod.Actor_estrus_hg1x,totalrate_Actor_estrus)
+estrus_comparison_exp(mod.Actor_estrus_hg1x,totalrate_Actor_estrus)
+```
+
+```{r}
+print(mod.Recipient_estrus_hg1x)
+marginal_effects(mod.Recipient_estrus_hg1x)
+```
+
+```{r}
+estrus_comparison(mod.Recipient_estrus_hg1x,totalrate_Recipient_estrus)
+```
+
+### Each behavior 
+
+```{r}
+# rate_Actor_estrus<-rate_Actor_estrus %>%
+#   filter(!is.na(State)) %>%
+#   filter(!is.na(rank.Actor)) %>%
+#   filter(!is.na(glick_rank_by_day))
+# rate_Recipient_estrus<-rate_Recipient_estrus %>%
+#   filter(!is.na(State)) %>%
+#   filter(!is.na(rank.Recipient)) %>%
+#   filter(!is.na(glick_rank_by_day))
+# 
+# 
+# mod.Actor_estrus_hg_fight<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Actor_estrus %>% filter(Behavior=="Fighting"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Actor_estrus_hg_chase<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Actor_estrus %>% filter(Behavior=="Chasing"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Actor_estrus_hg_mount<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Actor_estrus %>% filter(Behavior=="Mounting"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# 
+# 
+# mod.Recipient_estrus_hg_fight<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Recipient_estrus %>% filter(Behavior=="Fighting"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Recipient_estrus_hg_chase<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Recipient_estrus %>% filter(Behavior=="Chasing"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Recipient_estrus_hg_mount<-brm(bf(formula= rate ~ mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Recipient_estrus %>% filter(Behavior=="Mounting"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# saveRDS(mod.Actor_estrus_hg_fight,"Won_stat_RDS/mod.Actor_estrus_hg_fight.RDS")
+# saveRDS(mod.Actor_estrus_hg_chase,"Won_stat_RDS/mod.Actor_estrus_hg_chase.RDS")
+# saveRDS(mod.Actor_estrus_hg_mount,"Won_stat_RDS/mod.Actor_estrus_hg_mount.RDS")
+# 
+# saveRDS(mod.Recipient_estrus_hg_fight,"Won_stat_RDS/mod.Recipient_estrus_hg_fight.RDS")
+# saveRDS(mod.Recipient_estrus_hg_chase,"Won_stat_RDS/mod.Recipient_estrus_hg_chase.RDS")
+# saveRDS(mod.Recipient_estrus_hg_mount,"Won_stat_RDS/mod.Recipient_estrus_hg_mount.RDS")
+
+mod.Actor_estrus_hg_fight <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg_fight.RDS")
+mod.Actor_estrus_hg_chase <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg_chase.RDS")
+mod.Actor_estrus_hg_mount <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg_mount.RDS")
+
+mod.Recipient_estrus_hg_fight <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg_fight.RDS")
+mod.Recipient_estrus_hg_chase <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg_chase.RDS")
+mod.Recipient_estrus_hg_mount <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg_mount.RDS")
+```
+
+
+```{r}
+#Given behavior plot
+
+dat_given_fight<-marginal_effects(mod.Actor_estrus_hg_fight)$glick_rank_by_day %>%
+  mutate(xvar=glick_rank_by_day,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Fight") %>% 
+  as.data.frame()
+
+dat_given_chase<-marginal_effects(mod.Actor_estrus_hg_chase)$glick_rank_by_day %>%
+  mutate(xvar=glick_rank_by_day,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Chase") %>% 
+  as.data.frame()
+
+dat_given_mount<-marginal_effects(mod.Actor_estrus_hg_mount)$glick_rank_by_day %>%
+  mutate(xvar=glick_rank_by_day,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Mount") %>% 
+  as.data.frame()
+
+dat_given<-rbind(dat_given_fight,dat_given_chase,dat_given_mount) %>% 
+  mutate(Behavior=factor(Behavior,levels = c("Fight","Chase","Mount")))
+
+
+#Received behavior plot
+dat_received_fight<-marginal_effects(mod.Recipient_estrus_hg_fight)$glick_rank_by_day %>%
+  mutate(xvar=glick_rank_by_day,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Fight") %>% 
+  as.data.frame()
+
+dat_received_chase<-marginal_effects(mod.Recipient_estrus_hg_chase)$glick_rank_by_day %>%
+  mutate(xvar=glick_rank_by_day,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Chase") %>% 
+  as.data.frame()
+
+dat_received_mount<-marginal_effects(mod.Recipient_estrus_hg_mount)$glick_rank_by_day %>%
+  mutate(xvar=glick_rank_by_day,yvar=estimate__,lower=lower__,upper=upper__,se=se__) %>% 
+  select(xvar,yvar,lower,upper,se) %>% 
+  mutate(Behavior="Mount") %>% 
+  as.data.frame()
+
+dat_received<-rbind(dat_received_fight,dat_received_chase,dat_received_mount) %>% 
+  mutate(Behavior=factor(Behavior,levels = c("Fight","Chase","Mount")))
+
+
+dat_each_behav<-rbind(dat_given %>% mutate(direction="Given"),
+                      dat_received %>% mutate(direction="Received"))
+
+
+
+both<-ggplot(data=dat_each_behav ,aes(xvar,yvar))+
+  geom_line(aes(color=Behavior,group=Behavior),size=1.5,alpha=0.5)+
+  newggtheme_with_legend+
+  xlab("Glicko Rank on the Day of Observation")+
+  ylab("Log(Hourly Rate of Each Behavior)")+
+  scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12))+
+  scale_y_continuous(breaks = c(0,0.5,1.0,1.5,2,2.5,3),limits = c(0,3))+
+  geom_ribbon(aes(xvar,yvar,ymax=yvar+se,ymin=yvar-se,group=Behavior,fill=Behavior),alpha=0.4)+
+  scale_color_viridis(discrete=TRUE)+
+  scale_fill_viridis(discrete=TRUE)+
+  facet_wrap(~direction)
+
+print(both)
+```
+
+```{r}
+both2<-ggplot(data=dat_each_behav ,aes(xvar,exp(yvar)))+
+  geom_line(aes(color=Behavior,group=Behavior),size=1.5,alpha=0.5)+
+  newggtheme_with_legend+
+  xlab("Glicko Rank on the Day of Observation")+
+  ylab("Hourly Rate of Each Behavior")+
+  scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12))+
+  #scale_y_continuous(breaks = c(0,0.5,1.0,1.5,2,2.5,3),limits = c(0,3))+
+  geom_ribbon(aes(xvar,exp(yvar),ymax=exp(yvar+se),ymin=exp(yvar-se),group=Behavior,fill=Behavior),alpha=0.4)+
+  scale_color_viridis(discrete=TRUE)+
+  scale_fill_viridis(discrete=TRUE)+
+  facet_wrap(~direction,scales = "free_y")
+
+print(both2)
+```
+
+
+
+Glicko by day as a threshould then just estrus 
+```{r}
+# rate_Actor_estrus<-rate_Actor_estrus %>%
+#   filter(!is.na(State)) %>%
+#   filter(!is.na(rank.Actor)) %>%
+#   filter(!is.na(glick_rank_by_day))
+# rate_Recipient_estrus<-rate_Recipient_estrus %>%
+#   filter(!is.na(State)) %>%
+#   filter(!is.na(rank.Recipient)) %>%
+#   filter(!is.na(glick_rank_by_day))
+# 
+# 
+# mod.Actor_estrus_hg_fight0<-brm(bf(formula= rate ~ State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Actor_estrus %>% filter(Behavior=="Fighting"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Actor_estrus_hg_chase0<-brm(bf(formula= rate ~ State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Actor_estrus %>% filter(Behavior=="Chasing"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Actor_estrus_hg_mount0<-brm(bf(formula= rate ~ State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Actor_estrus %>% filter(Behavior=="Mounting"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# 
+# 
+# mod.Recipient_estrus_hg_fight0<-brm(bf(formula= rate ~ State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Recipient_estrus %>% filter(Behavior=="Fighting"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Recipient_estrus_hg_chase0<-brm(bf(formula= rate ~ State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Recipient_estrus %>% filter(Behavior=="Chasing"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# mod.Recipient_estrus_hg_mount0<-brm(bf(formula= rate ~ State+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   hu~mo(glick_rank_by_day)+(1|day)+(1|cohortx)+(1|subjectID),
+#                                   nl=FALSE),
+#                                data=rate_Recipient_estrus %>% filter(Behavior=="Mounting"),
+#                                family=hurdle_gamma(link = "log"),
+#                                control = list(adapt_delta=0.95)
+# )
+# 
+# 
+# saveRDS(mod.Actor_estrus_hg_fight0,"Won_stat_RDS/mod.Actor_estrus_hg_fight0.RDS")
+# saveRDS(mod.Actor_estrus_hg_chase0,"Won_stat_RDS/mod.Actor_estrus_hg_chase0.RDS")
+# saveRDS(mod.Actor_estrus_hg_mount0,"Won_stat_RDS/mod.Actor_estrus_hg_mount0.RDS")
+# 
+# saveRDS(mod.Recipient_estrus_hg_fight0,"Won_stat_RDS/mod.Recipient_estrus_hg_fight0.RDS")
+# saveRDS(mod.Recipient_estrus_hg_chase0,"Won_stat_RDS/mod.Recipient_estrus_hg_chase0.RDS")
+# saveRDS(mod.Recipient_estrus_hg_mount0,"Won_stat_RDS/mod.Recipient_estrus_hg_mount0.RDS")
+
+mod.Actor_estrus_hg_fight0 <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg_fight0.RDS")
+mod.Actor_estrus_hg_chase0 <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg_chase0.RDS")
+mod.Actor_estrus_hg_mount0 <- readRDS("Won_stat_RDS/mod.Actor_estrus_hg_mount0.RDS")
+
+mod.Recipient_estrus_hg_fight0 <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg_fight0.RDS")
+mod.Recipient_estrus_hg_chase0 <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg_chase0.RDS")
+mod.Recipient_estrus_hg_mount0 <- readRDS("Won_stat_RDS/mod.Recipient_estrus_hg_mount0.RDS")
+```
+
+```{r}
+marginal_effects(mod.Actor_estrus_hg_fight0)
+estrus_comparison(mod.Actor_estrus_hg_fight0,rate_Actor_estrus %>% filter(Behavior=="Fighting"))
+```
+```{r}
+marginal_effects(mod.Actor_estrus_hg_chase0)
+estrus_comparison(mod.Actor_estrus_hg_chase0,rate_Actor_estrus %>% filter(Behavior=="Chasing"))
+
+# rate_Actor_estrus %>% 
+#   filter(Behavior=="Chasing") %>% 
+#   ggplot(.,aes(State,rate,color=glick_rank_by_day))+
+#   geom_point()
+```
+
+```{r}
+marginal_effects(mod.Actor_estrus_hg_mount0)
+estrus_comparison(mod.Actor_estrus_hg_mount0,rate_Actor_estrus %>% filter(Behavior=="Mounting"))
+
+rate_Actor_estrus %>%
+  filter(Behavior=="Mounting") %>%
+  ggplot(.,aes(State,rate,color=glick_rank_by_day))+
+  geom_point()
+```
+
+```{r}
+estrus_comparison(mod.Recipient_estrus_hg_fight0,rate_Recipient_estrus %>% filter(Behavior=="Fighting"))
+estrus_comparison(mod.Recipient_estrus_hg_chase0,rate_Recipient_estrus %>% filter(Behavior=="Chasing"))
+estrus_comparison(mod.Recipient_estrus_hg_mount0,rate_Recipient_estrus %>% filter(Behavior=="Mounting"))
+```
+
+```{r}
+marginal_effects(mod.Recipient_estrus_hg_mount0)
+```
+
+
+
+
+## 4. hormones and genes data
+
+```{r}
+head(hgdf,20)
+colnames(hgdf)
+```
+
+### 4.1 correlation analysis
+
+#### Traditional way - Pearson's correlation
+```{r}
+
+cordf <-hgdf %>% mutate(subjectid=paste(cohortx,glrank,sep="-Gl")) %>% as.data.frame()
+row.names(cordf)<-cordf$subjectid
+colnames(cordf)
+
+cordata<-cordf[,c(2,3,5,9:20)]
+
+head(cordata)
+
+res2<-Hmisc::rcorr(as.matrix(cordata))
+
+corrplot::corrplot(res2$r, type="upper", order="hclust", 
+                    p.mat = res2$P, sig.level = 0.05, insig = "blank")
+```
+
+### 4.2 effect of rank 
+
+Visualize first
+```{r}
+hgdfx<- hgdf %>% 
+  gather(measure,value,c(2,3,9:20))
+head(hgdfx)
+```
+
+```{r}
+hgdfx %>% ggplot(.,aes(glrank,value))+
+  geom_point()+
+  facet_wrap(~measure, scales = "free_y")
+```
+
+```{r}
+hgdfx %>% ggplot(.,aes(ds,value))+
+  geom_point()+
+  # geom_smooth(method="lm")+
+  facet_wrap(~measure, scales = "free_y")
+```
+
+
+#### 4.2.1 Hormone analysis
+```{r}
+# mod.domsub.cort<-brm(CORT~status+(1|cohortx),
+#                      data=hgdf,
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# mod.domsub.E<-brm(E~status+(1|cohortx),
+#                      data=hgdf,
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# 
+# saveRDS(mod.domsub.cort,"Won_stat_RDS/mod.domsub.cort.RDS")
+# saveRDS(mod.domsub.E,"Won_stat_RDS/mod.domsub.E.RDS")
+
+mod.domsub.cort<-readRDS("Won_stat_RDS/mod.domsub.cort.RDS")
+mod.domsub.E<-readRDS("Won_stat_RDS/mod.domsub.E.RDS")
+```
+
+CORT
+```{r}
+print(mod.domsub.cort)
+marginal_effects(mod.domsub.cort)
+```
+
+Estradiol
+```{r}
+print(mod.domsub.E)
+marginal_effects(mod.domsub.E)
+```
+
+
+```{r}
+# mod.domsub.cort<-brm(CORT~status+(1|cohortx),
+#                      data=hgdf,
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# mod.domsub.E<-brm(E~status+(1|cohortx),
+#                      data=hgdf,
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# 
+# saveRDS(mod.domsub.cort,"Won_stat_RDS/mod.domsub.cort.RDS")
+# saveRDS(mod.domsub.E,"Won_stat_RDS/mod.domsub.E.RDS")
+
+mod.domsub.cort<-readRDS("Won_stat_RDS/mod.domsub.cort.RDS")
+mod.domsub.E<-readRDS("Won_stat_RDS/mod.domsub.E.RDS")
+```
+
+CORT
+```{r}
+print(mod.domsub.cort)
+# marginal_effects(mod.domsub.cort)
+```
+
+Estradiol
+```{r}
+print(mod.domsub.E)
+# marginal_effects(mod.domsub.E)
+```
+
+
+#### with estrus state on the day of blood collection
+
+```{r}
+hgdf %>% 
+  # filter(cohortx!="A") %>% 
+  # filter(cohortx!="B") %>% 
+  ggplot(.,aes(State1415,CORT))+geom_point()
+
+```
+
+
+```{r}
+hgdf %>% 
+  # filter(cohortx!="A") %>% 
+  # filter(cohortx!="B") %>% 
+  ggplot(.,aes(State1415,E))+geom_point()
+
+```
+
+
+```{r}
+# mod.domsub.cort_state<-brm(CORT~status+State1415+(1|cohortx),
+#                      data=hgdf,
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# mod.domsub.E_state<-brm(E~status+State1415+(1|cohortx),
+#                      data=hgdf,
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# 
+# mod.domsub.E_state2<-brm(E~State1415+(1|cohortx),
+#                      data=hgdf,
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# 
+# 
+# saveRDS(mod.domsub.cort_state,"Won_stat_RDS/mod.domsub.cort_state.RDS")
+# saveRDS(mod.domsub.E_state,"Won_stat_RDS/mod.domsub.E_state.RDS")
+# saveRDS(mod.domsub.E_state,"Won_stat_RDS/mod.domsub.E_state2.RDS")
+
+mod.domsub.cort_state<-readRDS("Won_stat_RDS/mod.domsub.cort_state.RDS")
+mod.domsub.E_state<-readRDS("Won_stat_RDS/mod.domsub.E_state.RDS")
+mod.domsub.E_state2<-readRDS("Won_stat_RDS/mod.domsub.E_state2.RDS")
+
+
+print(mod.domsub.cort_state) #CORT: best fit - only status as a fixed factor 
+print(mod.domsub.E_state)
+print(mod.domsub.E_state2) #this is the best fit 
+
+# cort_weights<-model_weights(mod.domsub.cort,mod.domsub.cort_state,weights = "loo")
+# estradiol_weights<-model_weights(mod.domsub.E,mod.domsub.E_state,mod.domsub.E_state2, weights = "loo")
+# saveRDS(cort_weights,"Won_stat_RDS/cort_weights.RDS")
+# saveRDS(estradiol_weights,"Won_stat_RDS/estradiol_weights.RDS")
+
+```
+
+```{r}
+
+coefs <- as.matrix(mod.domsub.E_state2)[, 1:4]
+  newdata <- data.frame(State1415 = levels(as.factor(hgdf$State1415)))
+  # A Tukeys contrast matrix
+  
+  # table(newdata$x) - gets the number of replicates of each level
+  tuk.mat <- multcomp::contrMat(n = table(newdata$State1415), type = "Tukey")
+  Xmat <- model.matrix(~State1415, data = newdata)
+  pairwise.mat <- tuk.mat %*% Xmat
+
+
+my_posterior<-  coefs %*% t(pairwise.mat) %>% as.data.frame() %>% gather(comps,value,1:4)
+
+comps = broom::tidyMCMC(coefs %*% t(pairwise.mat), conf.int = TRUE, conf.method = "HPDinterval") %>% mutate(Sig=ifelse(conf.low*conf.high>0,"Sig","-")) %>% 
+    mutate(poster=paste(round(estimate,1),
+                        paste("[",round(conf.low,1),", ",round(conf.high,1),"]",sep="")))
+comps
+
+```
+
+
+#### Make figures 
+
+Easy things first - Make half boxplots for CORT and E 
+```{r}
+hgdf %>% 
+  ggplot(.,aes(as.factor(domgroup),dpm_mg_TE))+
+  geom_boxplot2(aes(color=domgroup,fill=domgroup),alpha=0.1,outlier.colour = NA)+
+  geom_jitter(aes(color=domgroup),position = position_nudge(x=0.12),shape=21,size=2)+
+  theme_classic()+
+  theme(legend.position = "none")+
+  scale_color_colorblind()+
+  scale_fill_colorblind()+
+  xlab("Social status")+
+  ylab("Receptor density (dpm/mg TE)")
+```
+
+
+```{r}
+# library(tidybayes)
+
+
+```
+
+
+
+#### 4.2.2 Gene expression data 
+"VMHeralpha"  "VMHerbeta"   "VMHPR"   "VMHGnRH"    "VMHOTR"      "VMHOPRM1"    "mPOAeralpha" "mPOAerbeta"  "mPOAPR"      
+"mPOAGnRH"    "mPOAOTR"     "mPOAOPRM1" 
+
+
+#### gene expression ~ Dom vs. Sub status: Using MCMC.qpcr package
+```{r}
+library(MCMC.qpcr)
+pcrdf<-readr::read_csv("raw_data/qPCR_rawCTvalues.csv") %>% 
+  filter(sample!="water") %>% 
+  mutate(sample=as.integer(sample)) %>% 
+  arrange(sample) %>% 
+  mutate(dupl_id=rep(c("A","B"),419))
+
+sampledf<-readr::read_csv("raw_data/qPCR_sampleID.csv")
+
+head(pcrdf)
+head(sampledf)
+table(pcrdf$sample)
+table(sampledf$sample)
+table(sampledf$subjectid)
+
+
+#input efficiency info
+eff<-pcrdf %>% mutate(region.gene=paste(region,gene,sep=".")) %>% 
+  select(region.gene) %>% 
+  mutate(efficiency=2) %>% 
+  unique()
+
+
+df<-left_join(pcrdf,sampledf) %>% 
+  mutate(cohortx=LETTERS[as.numeric(str_sub(subjectid,1,2))-86],
+         Mouse.ID=as.numeric(str_sub(subjectid,4))) 
+
+
+df.glickos<-readRDS("Won_stat_RDS/df.glickos.RDS") 
+# I jus don't want to run all analysis R script every single time 
+
+glicko<-df.glickos %>% lapply(., function(x) x$ratings) %>%
+  map(~mutate(.,glrank=row.names(.))) %>% 
+  map2_df(.,names(.),~mutate(.x,cohortx=.y)) %>% 
+  mutate(Mouse.ID=Player) %>% 
+  select(cohortx,Mouse.ID,glrank)
+
+
+df<-left_join(df,glicko) %>% 
+  filter(subjectid!="90-5") %>%  #"90-5 was ran by mistake?"
+  mutate(status=ifelse(as.numeric(glrank)<7,"Dom","Sub")) %>% 
+  mutate(uniqueid=paste(subjectid,dupl_id))
+```
+
+Reformat the data suitable to MCMC.qpcr package
+```{r}
+table(df$glrank)
+
+df_list<-df %>% mutate(region.gene=paste(region,gene,sep = ".")) %>% 
+  split(.$region.gene) 
+
+
+for(i in 1:13){df_list[[i]][1,12]->colnames(df_list[[i]])[2]}
+df_list[[1]]
+df_list <- df_list %>% map(~ select(.,-gene) %>% select(.,-region.gene) %>% select(.,-region)) %>% 
+  map(~arrange(.,sample))
+
+
+qpcr_df<-full_join(df_list[[1]][,c(2,9)],df_list[[2]][,c(2,9)]) %>% 
+  full_join(.,df_list[[3]][,c(2,9)]) %>% 
+  full_join(.,df_list[[4]][,c(2,9)]) %>% 
+  full_join(.,df_list[[5]][,c(2,9)]) %>% 
+  full_join(.,df_list[[6]][,c(2,9)]) %>% 
+  full_join(.,df_list[[7]][,c(2,9)]) %>% 
+  full_join(.,df_list[[8]][,c(2,9)]) %>% 
+  full_join(.,df_list[[9]][,c(2,9)]) %>% 
+  full_join(.,df_list[[10]][,c(2,9)]) %>% 
+  full_join(.,df_list[[11]][,c(2,9)]) %>% 
+  full_join(.,df_list[[12]][,c(2,9)]) %>% 
+  full_join(.,df_list[[13]][,c(2,9)]) %>% 
+  full_join(.,df_list[[1]][,c(4:9)]) %>% 
+  mutate(mPOA.cypha=as.numeric(mPOA.cypha),
+         mPOA.eralpha=as.numeric(mPOA.eralpha),
+         mPOA.erbeta=as.numeric(mPOA.erbeta),
+         mPOA.gnrh=as.numeric(mPOA.gnrh),
+         mPOA.oprm1=as.numeric(mPOA.oprm1),
+         mPOA.otr=as.numeric(mPOA.otr),
+         mPOA.pr=as.numeric(mPOA.pr),
+         VMH.eralpha=as.numeric(VMH.eralpha),
+         VMH.erbeta=as.numeric(VMH.erbeta),
+         VMH.gapdh=as.numeric(VMH.gapdh),
+         VMH.oprm1=as.numeric(VMH.oprm1),
+         VMH.otr=as.numeric(VMH.otr),
+         VMH.pr =as.numeric(VMH.pr)
+         )
+
+colnames(qpcr_df)[15]<-"sample" #this is really important - I spend 20 min figuring why the mcmc.qpcr function didn't work
+
+
+qpcr_df <-qpcr_df %>% 
+  mutate(glrank=as.integer(glrank)) %>% 
+  left_join(.,hgdf %>% select(cohortx,glrank,State1415))
+```
+
+now the real stuff
+```{r}
+colnames(qpcr_df)
+eff2=cbind(as.data.frame(names(qpcr_df)[c(1,3:14)]),efficiency=as.numeric(2))
+#make sure all CT values are numeric, unless it won't work!
+qs=cq2counts(data=qpcr_df,effic=eff2,genecols = c(1,3:14),condcols = c(2,15:20))
+qs$status=relevel(qs$status,ref="Dom")
+```
+
+```{r}
+set.seed(1126)
+# naive=mcmc.qpcr(data=qs,fixed="status",random = "cohortx")
+# saveRDS(naive,"Won_stat_RDS/naive.RDS")
+
+naive<-readRDS("Won_stat_RDS/naive.RDS")
+
+# summary(naive) # DIC: 8228.303 
+
+s0=HPDsummary(model=naive,data=qs,relative = TRUE)
+s0$summary 
+
+outs=outlierSamples(naive,qs)
+outs # No outliers
+
+```
+
+
+```{r}
+set.seed(1130)
+qs$status=relevel(qs$status,ref="Dom")
+informed=mcmc.qpcr(data=qs,fixed="status",random = "cohortx", controls = c("mPOA.cypha","VMH.gapdh"))
+saveRDS(informed,"Won_stat_RDS/informed.RDS")
+informed<-readRDS("Won_stat_RDS/informed.RDS")
+
+# summary(informed) #DIC: 7881.133 
+
+si=HPDsummary(model=informed,data=qs,relative = TRUE)
+si$summary
+```
+
+
+Let's make a figure summarizing this 
+
+```{r}
+qs %>% group_by(sample,status,cohortx,gene) %>% 
+  summarize(countx=mean(count,na.rm=T)) %>% 
+  filter(gene!="mPOA.cypha") %>% 
+  filter(gene!="VMH.gapdh") %>% 
+  ggplot(.,aes(status,countx,color=cohortx))+
+  geom_point()+
+  facet_wrap(~gene,scales = "free_y")
+```
+
+```{r}
+qs %>% 
+  filter(gene=="VMH.eralpha") %>% 
+  filter(count>750)
+```
+
+
+```{r}
+plot(naive$Sol)
+head(naive$Sol)
+colnames(naive$Sol)
+naive_domsub_post<-naive$Sol[,c(15:22,24:26)] %>% 
+  as.data.frame() %>% 
+  gather(name,value,1:11) %>% 
+  mutate(region=sub("\\..*","",str_sub(name,5)),
+         gene=sub("\\:.*","",sub(".*\\.","",name)))
+
+head(naive_domsub_post)  
+```
+
+```{r}
+naive_sum<-s0$summary %>% 
+  filter(gene!="mPOA.cypha") %>% 
+  filter(gene!="VMH.gapdh") %>% 
+  as.data.frame() %>% 
+  mutate(region=sub("\\..*","",gene)) %>% 
+  mutate(gene=sub(".*\\.","",gene)) %>% 
+  mutate(sig=ifelse(lower*upper>0,"sig","-")) %>% 
+  mutate(text=paste(round(mean,2),sep=" [",paste(round(lower,2),sep=", ",paste(round(upper,2),"]",sep=""))))
+
+naive_sum
+
+
+# informed_sum<-si$summary %>% 
+#   filter(gene!="mPOA.cypha") %>% 
+#   filter(gene!="VMH.gapdh") %>% 
+#   as.data.frame() %>% 
+#   mutate(region=sub("\\..*","",gene)) %>% 
+#   mutate(gene=sub(".*\\.","",gene)) %>% 
+#   mutate(sig=ifelse(lower*upper>0,"sig","-")) %>% 
+#   mutate(text=paste(round(mean,2),sep=" [",paste(round(lower,2),sep=", ",paste(round(upper,2),"]",sep=""))))
+# 
+# informed_sum
+```
+
+
+```{r}
+library(ggridges)
+library(viridis)
+```
+
+```{r}
+all<-ggplot(naive_domsub_post,aes(value,gene))+
+  geom_density_ridges(scale=0.7,color="white",alpha=0.6,rel_min_height = .05)+
+  geom_point(data=naive_sum,aes(x=mean,y=gene),size=3)+
+  geom_segment(data=naive_sum,aes(x=lower,xend=upper,y=gene,yend=gene),size=1.2)+
+  geom_vline(xintercept = 0,linetype="dashed",color="grey")+
+  geom_text(data=naive_sum,aes(label=text,x=-Inf,y=gene),hjust="inward",vjust=0.02)+
+  scale_color_viridis(discrete = T,option="D")+
+  scale_fill_viridis(discrete = T,option="D")+
+  ylab("")+
+  theme(legend.position = "top",
+        legend.text = element_text(family="Helvetica",size=10,hjust=-2),
+    strip.text.y = element_text(family="Helvetica",size=15,angle=180),
+    strip.placement = "outside",
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(family="Helvetica"),
+    axis.title.y=element_blank(),
+    axis.title.x=element_text(family="Helvetica",size=12),
+    panel.spacing.y=unit(0, "lines"),
+    panel.background = element_rect(fill=NULL))+
+  labs(fill="",color="")+
+  xlab("Parameter estimate (mean ± 95% CI)")+
+  newggtheme+
+  facet_wrap(~region,strip.position = "left",scales="free_y",ncol=1)
+
+print(all)  
+```
+
+```{r}
+all2<-ggplot()+
+  geom_point(data=naive_sum,aes(y=gene,x=mean))+
+  geom_errorbarh(data=naive_sum,aes(y=gene,xmin=lower,xmax=upper),height=0.5)+
+  geom_vline(xintercept = 0,linetype="dashed",color="grey")+
+  geom_text(data=naive_sum %>% filter(sig=="sig"),
+           aes(label=text,x=-Inf,gene),hjust="inward",fontface="bold",vjust=-0.0001)+
+  geom_text(data=naive_sum %>% filter(sig!="sig"),aes(label=text,x=-Inf,y=gene),hjust="inward",vjust=-0.0001)+
+  scale_color_viridis(discrete = T,option="D")+
+  scale_fill_viridis(discrete = T,option="D")+
+  ylab("")+
+  theme(legend.position = "top",
+        legend.text = element_text(family="Helvetica",size=10,hjust=-2),
+    strip.text.y = element_text(family="Helvetica",size=15,angle=180),
+    strip.placement = "outside",
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(family="Helvetica"),
+    axis.title.y=element_blank(),
+    axis.title.x=element_text(family="Helvetica",size=12),
+    panel.spacing.y=unit(0, "lines"),
+    panel.background = element_rect(fill=NULL))+
+  labs(fill="",color="")+
+  xlab("Parameter estimate (mean ± 95% CI)")+
+  newggtheme+
+  facet_wrap(~region,strip.position = "left",scales="free_y",ncol=1)+
+  scale_x_continuous(breaks=c(-2,-1,0,1,2),limits = c(-2.5,2.5))
+
+print(all2)  
+```
+
+
+```{r}
+informed_all<-ggplot()+
+  geom_point(data=informed_sum,aes(y=gene,x=mean))+
+  geom_errorbarh(data=informed_sum,aes(y=gene,xmin=lower,xmax=upper),height=0.5)+
+  geom_vline(xintercept = 0,linetype="dashed",color="grey")+
+  geom_text(data=informed_sum %>% filter(sig=="sig"),
+           aes(label=text,x=-Inf,gene),hjust="inward",fontface="bold",vjust=-0.0001)+
+  geom_text(data=informed_sum %>% filter(sig!="sig"),aes(label=text,x=-Inf,y=gene),hjust="inward",vjust=-0.0001)+
+  scale_color_viridis(discrete = T,option="D")+
+  scale_fill_viridis(discrete = T,option="D")+
+  ylab("")+
+  theme(legend.position = "top",
+        legend.text = element_text(family="Helvetica",size=10,hjust=-2),
+    strip.text.y = element_text(family="Helvetica",size=15,angle=180),
+    strip.placement = "outside",
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(family="Helvetica"),
+    axis.title.y=element_blank(),
+    axis.title.x=element_text(family="Helvetica",size=12),
+    panel.spacing.y=unit(0, "lines"),
+    panel.background = element_rect(fill=NULL))+
+  labs(fill="",color="")+
+  xlab("Parameter estimate (mean ± 95% CI)")+
+  newggtheme+
+  facet_wrap(~region,strip.position = "left",scales="free_y",ncol=1)+
+  scale_x_continuous(breaks=c(-2,-1,0,1,2),limits = c(-2.5,2.5))
+
+print(informed_all)  
+```
+
+
+
+```{r}
+mpoa_post<-naive_domsub_post %>% filter(region=="mPOA")
+mpoa_sum<-naive_sum %>% filter(region=="mPOA")
+
+
+mpoa<-ggplot(mpoa_post,aes(value,gene))+
+  geom_density_ridges(scale=0.7,color="white",alpha=0.6,rel_min_height = .05)+
+  geom_point(data=mpoa_sum,aes(x=mean,y=gene),size=3)+
+  geom_segment(data=mpoa_sum,aes(x=lower,xend=upper,y=gene,yend=gene),size=1.2)+
+  geom_vline(xintercept = 0,linetype="dashed",color="grey")+
+  geom_text(data=mpoa_sum,aes(label=text,x=-Inf,y=gene),hjust="inward",vjust=0.02)+
+  scale_color_viridis(discrete = T,option="D")+
+  scale_fill_viridis(discrete = T,option="D")+
+  ylab("")+
+  theme(legend.position = "top",
+        legend.text = element_text(family="Helvetica",size=10,hjust=-2),
+    strip.text.y = element_text(family="Helvetica",size=15,angle=180),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(family="Helvetica"),
+    axis.title.y=element_blank(),
+    axis.title.x=element_text(family="Helvetica",size=12),
+    panel.spacing.y=unit(0, "lines"),
+    panel.background = element_rect(fill=NULL))+
+  labs(fill="",color="")+
+  xlab("Parameter estimate (mean ± 95% CI)")+
+  newggtheme
+
+print(mpoa)  
+```
+
+```{r}
+vmh_post<-naive_domsub_post %>% filter(region=="VMH")
+vmh_sum<-naive_sum %>% filter(region=="VMH")
+
+vmh<-ggplot(vmh_post,aes(value,gene))+
+  geom_density_ridges(scale=0.7,color="white",alpha=0.6,rel_min_height = .05)+
+  geom_point(data=vmh_sum,aes(x=mean,y=gene),size=3)+
+  geom_segment(data=vmh_sum,aes(x=lower,xend=upper,y=gene,yend=gene),size=1.2)+
+  geom_vline(xintercept = 0,linetype="dashed",color="grey")+
+  geom_text(data=vmh_sum %>% filter(sig=="sig"),
+           aes(label=text,x=-Inf,gene),hjust="inward",fontface="bold",vjust=-0.0001)+
+  geom_text(data=vmh_sum %>% filter(sig!="sig"),aes(label=text,x=-Inf,y=gene),hjust="inward",vjust=-0.0001)+
+  scale_color_viridis(discrete = T,option="D")+
+  scale_fill_viridis(discrete = T,option="D")+
+  ylab("")+
+  theme(legend.position = "top",
+        legend.text = element_text(family="Helvetica",size=10,hjust=-2),
+    strip.text.y = element_text(family="Helvetica",size=15,angle=180),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(family="Helvetica"),
+    axis.title.y=element_blank(),
+    axis.title.x=element_text(family="Helvetica",size=12),
+    panel.spacing.y=unit(0, "lines"),
+    panel.background = element_rect(fill=NULL))+
+  labs(fill="",color="")+
+  xlab("Parameter estimate (mean ± 95% CI)")+
+  newggtheme
+
+print(vmh)
+
+```
+
+
+
+
+#### effect of estrus cycle on the day of tissue/blood collection 
+```{r}
+qs$State1415=relevel(qs$State1415,ref="Estrus")
+
+naive_estrus=mcmc.qpcr(data=qs,fixed="State1415",random = "cohortx")
+
+summary(naive_estrus) # DIC: 7873.363 
+
+s0e=HPDsummary(model=naive_estrus,data=qs,relative = TRUE)
+s0e$summary 
+
+s0e$geneWise
+```
+
+```{r}
+informed_estrus=mcmc.qpcr(data=qs,fixed="State1415",random = "cohortx", controls = c("mPOA.cypha","VMH.gapdh"))
+saveRDS(informed_estrus,"Won_stat_RDS/informed_estrus.RDS")
+informed_estrus<-readRDS("Won_stat_RDS/informed_estrus.RDS")
+
+summary(informed_estrus)  #DIC: 7941.096
+si=HPDsummary(model=informed,data=qs,relative = TRUE)
+si$summary
+```
+
+
+#### both status and estrus state 
+```{r}
+qs$status=relevel(qs$status,ref="Sub")
+naive_both=mcmc.qpcr(data=qs,fixed="State1415+status",random = "cohortx")
+
+summary(naive_both) #8070.623
+
+s0b=HPDsummary(model=naive_both,data=qs,relative = TRUE)
+s0b$summary 
+
+```
+
+```{r}
+informed_both=mcmc.qpcr(data=qs,fixed="State1415+status",random = "cohortx", controls = c("mPOA.cypha","VMH.gapdh"))
+saveRDS(informed_both,"Won_stat_RDS/informed_both.RDS")
+informed_both<-readRDS("Won_stat_RDS/informed_both.RDS")
+
+summary(informed_both)  #DIC: 8571.361
+sbi=HPDsummary(model=informed_both,data=qs,relative = TRUE)
+sbi$summary
+```
+
+#### Interaction
+```{r}
+qs$status=relevel(qs$status,ref="Sub")
+naive_int=mcmc.qpcr(data=qs,fixed="State1415+status+State1415:status",random = "cohortx")
+
+summary(naive_int) #DIC: 7905.887
+
+smm_int=HPDsummary(naive_int,qs ,relative = T)
+
+smm_int$summary
+
+naive$DIC
+naive_estrus$DIC
+naive_int$DIC
+```
+
+
+
+
+
+
+#### 5.4 without cohort A (did not form a hierarchy) 
+not much difference - don't bother 
+
+hormone data
+```{r}
+# mod2.domsub.cort<-brm(CORT~status+(1|cohortx),
+#                      data=hgdf %>% filter(cohortx!="A"),
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# mod2.domsub.E<-brm(E~status+(1|cohortx),
+#                      data=hgdf %>% filter(cohortx!="A"),
+#                      family='gaussian',
+#                      control = list(adapt_delta=0.95),
+#                      chains = 4,iter = 10000,warmup = 4000, thin = 1)
+# 
+# saveRDS(mod2.domsub.cort,"Won_stat_RDS/mod2.domsub.cort.RDS")
+# saveRDS(mod2.domsub.E,"Won_stat_RDS/mod2.domsub.E.RDS")
+
+mod2.domsub.cort<-readRDS("Won_stat_RDS/mod2.domsub.cort.RDS")
+mod2.domsub.E<-readRDS("Won_stat_RDS/mod2.domsub.E.RDS")
+```
+
+CORT
+```{r}
+print(mod2.domsub.cort)
+```
+
+Estradiol
+```{r}
+print(mod2.domsub.E)
+```
+
+Gene expression data
+```{r}
+qpcr_dfx<-qpcr_df %>% filter(cohortx!="A")
+
+eff2x=cbind(as.data.frame(names(qpcr_dfx)[c(1,3:14)]),efficiency=as.numeric(2))
+#make sure all CT values are numeric, unless it won't work!
+qsx=cq2counts(data=qpcr_dfx,effic=eff2x,genecols = c(1,3:14),condcols = c(2,15:20))
+qsx$status=relevel(qsx$status,ref="Sub")
+
+
+set.seed(1126)
+naivex=mcmc.qpcr(data=qsx,fixed="status",random = "cohortx")
+
+s0x=HPDsummary(model=naivex,data=qsx,relative = TRUE)
+s0x$summary 
+
+
+s1x=HPDsummary(model=naivex,data=qsx)
+s1x$summary
+```
+
+
+
