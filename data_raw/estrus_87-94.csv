@@ -1,0 +1,1321 @@
+Timestamp,Date that smears were taken,Cohort,Mouse ID,Estrus State,Notes
+7/5/2017 9:46,2/20/2017,87,1,Estrus,
+7/5/2017 10:29,2/20/2017,87,2,Metestrus,Between diestrus and metestrus
+7/5/2017 10:32,2/20/2017,87,3,Proestrus,
+7/5/2017 10:38,2/20/2017,87,4,Estrus,
+7/5/2017 10:45,2/20/2017,87,5,Diestrus,mostly diestrus but a few proestrus cells
+7/5/2017 11:07,2/20/2017,87,6,No smear/Not clear (elaborate in notes),
+7/5/2017 11:25,2/20/2017,87,7,Diestrus,Mostly diestrus with a couple of proestrus cells. Very little smear.
+7/5/2017 11:31,2/20/2017,87,8,Estrus,
+7/5/2017 11:37,2/20/2017,87,9,Estrus,
+7/5/2017 12:12,2/20/2017,87,10,Estrus,between proestrus and estrus
+7/5/2017 12:16,2/20/2017,87,11,Proestrus,between proestrus and estrus
+7/5/2017 12:26,2/20/2017,87,12,Estrus,
+7/5/2017 12:29,2/20/2017,88,1,Estrus,
+7/5/2017 12:30,2/20/2017,88,2,Proestrus,between diestrus and proestrus
+7/5/2017 12:32,2/20/2017,88,3,Estrus,
+7/5/2017 12:36,2/20/2017,88,4,Diestrus,Between diestrus and proestrus but leaning towards to diestrus state.
+7/5/2017 13:50,2/20/2017,88,5,Proestrus,Between proestrus and estrus. Not necessarily favoring either.
+7/5/2017 12:50,2/20/2017,88,6,Estrus,Late proestrus
+7/5/2017 12:53,2/20/2017,88,7,Estrus,
+7/5/2017 12:57,2/20/2017,88,8,Estrus,Between estrus and proestrus
+7/5/2017 13:18,2/20/2017,88,9,Metestrus,
+7/5/2017 13:20,2/20/2017,88,10,Metestrus,
+7/5/2017 13:25,2/20/2017,88,11,Proestrus,Early estrus
+7/5/2017 13:27,2/20/2017,88,12,Proestrus,Very early estrus
+7/5/2017 13:31,2/21/2017,87,1,Estrus,
+7/5/2017 13:32,2/21/2017,87,2,Metestrus,
+7/5/2017 13:38,2/21/2017,87,3,Estrus,Late proestrus?
+7/5/2017 13:47,2/21/2017,87,4,Estrus,
+7/5/2017 13:54,2/21/2017,87,5,Proestrus,Between diestrus and proestrus
+7/5/2017 13:57,2/21/2017,87,6,Estrus,early metestrus
+7/5/2017 14:03,2/21/2017,87,7,Proestrus,early estrus
+7/5/2017 14:06,2/21/2017,87,8,Estrus,
+7/5/2017 14:08,2/21/2017,87,9,Estrus,
+7/5/2017 14:16,2/21/2017,87,10,Estrus,
+7/5/2017 14:19,2/21/2017,87,11,Estrus,
+7/5/2017 14:19,2/21/2017,87,12,Estrus,
+7/5/2017 14:21,2/21/2017,88,1,Estrus,
+7/5/2017 14:27,2/21/2017,88,2,No smear/Not clear (elaborate in notes),
+7/5/2017 14:28,2/21/2017,88,3,Estrus,
+7/5/2017 14:31,2/21/2017,88,4,Proestrus,proestrus-estrus
+7/5/2017 14:33,2/21/2017,88,5,Estrus,
+7/5/2017 14:37,2/21/2017,88,6,Estrus,
+7/5/2017 14:44,2/21/2017,88,7,Metestrus,
+7/5/2017 14:47,2/21/2017,88,8,Estrus,
+7/5/2017 14:49,2/21/2017,88,9,Metestrus,
+7/5/2017 14:53,2/21/2017,88,10,Estrus,between proestrus and estrus
+7/5/2017 14:59,2/21/2017,88,11,Proestrus,Between proestrus and estrus
+7/5/2017 15:00,2/21/2017,88,12,Estrus,
+7/5/2017 15:05,2/21/2017,89,1,No smear/Not clear (elaborate in notes),
+7/5/2017 15:06,2/21/2017,89,2,Estrus,
+7/5/2017 15:08,2/21/2017,89,3,Metestrus,Between metestrus and diestrus
+7/5/2017 15:09,2/21/2017,89,4,No smear/Not clear (elaborate in notes),it is really not clear
+7/5/2017 15:10,2/21/2017,89,5,Estrus,
+7/5/2017 15:15,2/21/2017,89,6,Estrus,
+7/5/2017 15:18,2/21/2017,89,7,Proestrus,between proestrus and estrus
+7/5/2017 15:19,2/21/2017,89,8,Estrus,
+7/5/2017 15:22,2/21/2017,89,9,Proestrus,proestrus-estrus
+7/5/2017 15:22,2/21/2017,89,10,Estrus,
+7/5/2017 15:23,2/21/2017,89,11,Estrus,
+7/5/2017 15:24,2/21/2017,89,12,Estrus,
+7/5/2017 15:27,2/21/2017,90,1,Metestrus,estrus---metestrus
+7/5/2017 15:32,2/21/2017,90,2,Estrus,
+7/5/2017 15:35,2/21/2017,90,3,Estrus,
+7/5/2017 15:37,2/21/2017,90,4,Estrus,
+7/5/2017 15:39,2/21/2017,90,5,Estrus,early metestrus
+7/5/2017 15:40,2/21/2017,90,6,Estrus,proestrus---estrus
+7/5/2017 15:41,2/21/2017,90,7,No smear/Not clear (elaborate in notes),In the middle of proestrus and estrus... not a clear state
+7/5/2017 15:43,2/21/2017,90,8,Metestrus,
+7/5/2017 15:45,2/21/2017,90,9,Estrus,between estrus and metestrus
+7/5/2017 15:47,2/21/2017,90,10,No smear/Not clear (elaborate in notes),not clear... possibly metestrus or estrus with late proestrus
+7/5/2017 15:49,2/21/2017,90,11,Estrus,
+7/5/2017 15:51,2/21/2017,90,12,No smear/Not clear (elaborate in notes),a couple estrus?
+7/6/2017 12:23,2/22/2017,87,1,Estrus,
+7/6/2017 12:28,2/22/2017,87,2,Metestrus,
+7/6/2017 12:34,2/22/2017,87,3,Estrus,late proestrus?
+7/6/2017 12:35,2/22/2017,87,4,Estrus,
+7/6/2017 12:38,2/22/2017,87,5,Estrus,
+7/6/2017 12:53,2/22/2017,87,6,No smear/Not clear (elaborate in notes),No smear
+7/6/2017 12:54,2/22/2017,87,7,Estrus,
+7/6/2017 12:55,2/22/2017,87,8,Estrus,
+7/6/2017 12:57,2/22/2017,87,9,Metestrus,
+7/6/2017 13:07,2/22/2017,87,10,Estrus,
+7/6/2017 13:10,2/22/2017,87,11,Estrus,
+7/6/2017 13:13,2/22/2017,87,12,Estrus,early metestrus
+7/6/2017 13:16,2/22/2017,88,1,Estrus,
+7/6/2017 13:18,2/22/2017,88,2,Proestrus,Between proestrus and diestrus. I believe it is more proestrus and that the cell got smudged. 
+7/6/2017 13:19,2/22/2017,88,3,Estrus,
+7/6/2017 13:23,2/22/2017,88,4,Estrus,
+7/6/2017 13:48,2/22/2017,88,5,Estrus,possibly early metestrus
+7/6/2017 13:54,2/22/2017,88,6,Estrus,
+7/6/2017 13:57,2/22/2017,88,7,Diestrus,
+7/6/2017 13:59,2/22/2017,88,8,Estrus,between estrus and metestrus
+7/6/2017 14:00,2/22/2017,88,9,Metestrus,between estrus and metestrus
+7/6/2017 14:09,2/22/2017,88,10,Estrus,
+7/6/2017 14:06,2/22/2017,88,11,Estrus,
+7/6/2017 14:15,2/22/2017,88,12,Estrus,Between proestrus and estrus but not strictly one or the other
+7/6/2017 14:22,2/22/2017,89,1,Estrus,early metestrus
+7/6/2017 14:23,2/22/2017,89,2,Estrus,
+7/6/2017 14:24,2/22/2017,89,3,Diestrus,Between diestrus and proestrus
+7/6/2017 14:26,2/22/2017,89,4,Proestrus,between proestrus and estrus
+7/6/2017 14:27,2/22/2017,89,5,Metestrus,
+7/6/2017 14:31,2/22/2017,89,6,No smear/Not clear (elaborate in notes),
+7/6/2017 14:32,2/22/2017,89,7,Proestrus,in the middle of proestrus and estrus
+7/6/2017 14:34,2/22/2017,89,8,Estrus,early metestrus or late proestrus
+7/6/2017 14:36,2/22/2017,89,9,Proestrus,
+7/6/2017 14:37,2/22/2017,89,10,Estrus,
+7/6/2017 14:38,2/22/2017,89,11,Proestrus,early estrus
+7/6/2017 14:40,2/22/2017,89,12,Estrus,early metestrus
+7/6/2017 14:44,2/22/2017,90,1,Estrus,between estrus and metestrus
+7/6/2017 14:45,2/22/2017,90,2,Estrus,
+7/6/2017 14:46,2/22/2017,90,3,Metestrus,
+7/6/2017 14:47,2/22/2017,90,4,Estrus,Late proestrus
+7/6/2017 14:49,2/22/2017,90,5,Metestrus,
+7/6/2017 14:53,2/22/2017,90,6,Estrus,
+7/6/2017 14:55,2/22/2017,90,7,Estrus,
+7/6/2017 14:58,2/22/2017,90,8,Diestrus,late metestrus
+7/6/2017 15:00,2/22/2017,90,9,Diestrus,
+7/6/2017 15:07,2/22/2017,90,10,Metestrus,
+7/6/2017 15:07,2/22/2017,90,11,Estrus,
+7/6/2017 15:09,2/22/2017,90,12,Estrus,possibly late proestrus
+7/6/2017 15:17,2/23/2017,87,1,Metestrus,
+7/6/2017 15:19,2/23/2017,87,2,Diestrus,
+7/6/2017 15:20,2/23/2017,87,3,Proestrus,It's not very clear because everything is mushed together
+7/6/2017 15:21,2/23/2017,87,4,Estrus,
+7/6/2017 15:22,2/23/2017,87,5,Estrus,
+7/6/2017 15:24,2/23/2017,87,6,Metestrus,
+7/6/2017 15:25,2/23/2017,87,7,Estrus,
+7/6/2017 15:27,2/23/2017,87,8,Estrus,
+7/6/2017 15:28,2/23/2017,87,9,Diestrus,
+7/6/2017 15:29,2/23/2017,87,10,Metestrus,
+7/6/2017 15:30,2/23/2017,87,11,Estrus,early metestrus
+7/6/2017 15:32,2/23/2017,87,12,Metestrus,between diestrus and metetrus but more on the diestrus side
+7/6/2017 15:35,2/23/2017,88,1,Metestrus,metestrus and possibly diestrus
+7/6/2017 15:37,2/23/2017,88,2,No smear/Not clear (elaborate in notes),estrus? not enough to tell
+7/6/2017 15:39,2/23/2017,88,3,Estrus,early metestrus
+7/6/2017 15:40,2/23/2017,88,4,Estrus,
+7/6/2017 15:50,2/23/2017,88,5,No smear/Not clear (elaborate in notes),metetrus?
+7/6/2017 15:51,2/23/2017,88,6,Estrus,Early metestrus
+7/6/2017 15:52,2/23/2017,88,7,No smear/Not clear (elaborate in notes),there isn't anything clear enough to judge
+7/6/2017 16:00,2/23/2017,88,8,Diestrus,between diestrus and late metestrus
+7/6/2017 16:02,2/23/2017,88,9,Metestrus,more metestrus than estrus
+7/6/2017 16:04,2/23/2017,88,10,Metestrus,
+7/6/2017 16:06,2/23/2017,88,11,Estrus,early metestrus
+7/6/2017 16:08,2/23/2017,88,12,Estrus,
+7/7/2017 10:19,2/23/2017,89,1,Estrus,early metestrus
+7/7/2017 10:22,2/23/2017,89,2,Estrus,
+7/7/2017 10:30,2/23/2017,89,3,No smear/Not clear (elaborate in notes),
+7/7/2017 10:47,2/23/2017,89,4,Estrus,
+7/7/2017 10:51,2/23/2017,89,5,Metestrus,
+7/7/2017 10:53,2/23/2017,89,6,Estrus,between proestrus and estrus
+7/7/2017 10:55,2/23/2017,89,7,Estrus,
+7/7/2017 10:57,2/23/2017,89,8,Estrus,
+7/7/2017 11:00,2/23/2017,89,9,Estrus,late proestrus
+7/7/2017 11:01,2/23/2017,89,10,Estrus,early metestrus
+7/7/2017 11:05,2/23/2017,89,11,Estrus,
+7/7/2017 11:06,2/23/2017,89,12,Metestrus,
+7/7/2017 11:08,2/23/2017,90,1,Metestrus,
+7/7/2017 11:09,2/23/2017,90,2,Estrus,
+7/7/2017 11:11,2/23/2017,90,3,Diestrus,
+7/7/2017 11:12,2/23/2017,90,4,Estrus,
+7/7/2017 11:16,2/23/2017,90,5,Diestrus,late metestrus
+7/7/2017 11:18,2/23/2017,90,6,Estrus,early metestrus
+7/7/2017 11:22,2/23/2017,90,7,Estrus,
+7/7/2017 11:31,2/23/2017,90,8,Diestrus,between diestrus and proestrus
+7/7/2017 11:33,2/23/2017,90,9,Estrus,
+7/7/2017 11:37,2/23/2017,90,10,Estrus,
+7/7/2017 11:40,2/23/2017,90,11,Estrus,
+7/7/2017 11:40,2/23/2017,90,12,Estrus,
+7/7/2017 11:48,2/25/2017,87,1,Metestrus,early diestrus
+7/7/2017 11:51,2/25/2017,87,2,Proestrus,Between proestrus and diestrus
+7/7/2017 11:53,2/25/2017,87,3,Estrus,Possibly late proestrus
+7/7/2017 11:59,2/25/2017,87,4,Metestrus,
+7/7/2017 12:03,2/25/2017,87,5,Metestrus,
+7/7/2017 12:05,2/25/2017,87,6,Metestrus,
+7/7/2017 12:06,2/25/2017,87,7,Metestrus,between metestrus and diestrus
+7/7/2017 12:07,2/25/2017,87,8,Estrus,early metestrus
+7/7/2017 12:37,2/25/2017,87,9,No smear/Not clear (elaborate in notes),nothing to identify state
+7/7/2017 12:38,2/25/2017,87,10,Metestrus,
+7/7/2017 12:44,2/25/2017,87,11,No smear/Not clear (elaborate in notes),nothing to identify state
+7/7/2017 12:49,2/25/2017,87,12,Metestrus,between metestrus and diestrus
+7/7/2017 12:53,2/25/2017,88,1,Proestrus,between diestrus and proestrus but more diestrus
+7/7/2017 13:00,2/25/2017,88,2,Estrus,
+7/7/2017 13:00,2/25/2017,88,3,Estrus,
+7/7/2017 13:01,2/25/2017,88,4,Estrus,early metestrus
+7/7/2017 13:08,2/25/2017,88,5,Diestrus,
+7/7/2017 13:10,2/25/2017,88,6,Metestrus,
+7/7/2017 13:11,2/25/2017,88,7,Estrus,
+7/7/2017 13:12,2/25/2017,88,8,Estrus,fair amount of late proestrus
+7/7/2017 13:15,2/25/2017,88,9,Diestrus,
+7/7/2017 13:16,2/25/2017,88,10,Metestrus,between diestrus and metestrus
+7/7/2017 13:18,2/25/2017,88,11,Metestrus,
+7/7/2017 13:19,2/25/2017,88,12,Metestrus,
+7/7/2017 13:21,2/25/2017,89,1,Estrus,between estrus and metestrus
+7/7/2017 13:22,2/25/2017,89,2,Estrus,Early metestrus
+7/7/2017 13:24,2/25/2017,89,3,Estrus,early metestrus
+7/7/2017 13:25,2/25/2017,89,4,Estrus,
+7/7/2017 13:31,2/25/2017,89,5,Diestrus,early proestrus
+7/7/2017 13:33,2/25/2017,89,6,Estrus,
+7/7/2017 13:52,2/25/2017,89,7,Metestrus,
+7/7/2017 13:54,2/25/2017,89,8,No smear/Not clear (elaborate in notes),Estrus?
+7/7/2017 14:04,2/25/2017,89,9,No smear/Not clear (elaborate in notes),nothing to decipher
+7/7/2017 14:07,2/25/2017,89,10,Diestrus,late metestrus
+7/7/2017 14:08,2/25/2017,89,11,Estrus,
+7/7/2017 14:09,2/25/2017,89,12,Diestrus,
+7/7/2017 14:16,2/25/2017,90,1,Metestrus,isn't much on the slide
+7/7/2017 14:20,2/25/2017,90,2,Metestrus,
+7/7/2017 14:22,2/25/2017,90,3,Diestrus,early proestrus
+7/7/2017 14:23,2/25/2017,90,4,Metestrus,some signs of diestrus
+7/7/2017 14:25,2/25/2017,90,5,No smear/Not clear (elaborate in notes),
+7/7/2017 14:30,2/25/2017,90,6,Estrus,early metestrus
+7/7/2017 14:31,2/25/2017,90,7,Metestrus,
+7/7/2017 14:34,2/25/2017,90,8,Estrus,
+7/7/2017 14:43,2/25/2017,90,9,Estrus,
+7/7/2017 14:44,2/25/2017,90,10,Estrus,early metestrus
+7/7/2017 14:45,2/25/2017,90,11,Metestrus,
+7/7/2017 14:46,2/25/2017,90,12,Metestrus,between metestrus and diestrus
+7/12/2017 10:25,2/26/2017,87,1,Proestrus,Between proestrus and diestrus
+7/12/2017 10:26,2/26/2017,87,2,Proestrus,Between proestrus and diestrus
+7/12/2017 10:30,2/26/2017,87,3,Estrus,
+7/12/2017 10:31,2/26/2017,87,4,Metestrus,
+7/12/2017 10:33,2/26/2017,87,5,Metestrus,early diestrus
+7/12/2017 10:34,2/26/2017,87,6,Proestrus,between diestrus and proestrus but mostly proestrus
+7/12/2017 10:36,2/26/2017,87,7,Diestrus,early proestrus
+7/12/2017 10:37,2/26/2017,87,8,Metestrus,
+7/12/2017 10:39,2/26/2017,87,9,Proestrus,
+7/12/2017 10:41,2/26/2017,87,10,Metestrus,maybe? not very clear
+7/12/2017 10:42,2/26/2017,87,11,Metestrus,between metestrus and diestrus
+7/12/2017 10:43,2/26/2017,87,12,Diestrus,
+7/12/2017 10:48,2/26/2017,88,1,Estrus,
+7/12/2017 10:50,2/26/2017,88,2,Metestrus,
+7/12/2017 10:52,2/26/2017,88,3,Estrus,early metestrus
+7/12/2017 10:52,2/26/2017,88,4,Estrus,
+7/12/2017 10:54,2/26/2017,88,5,Diestrus,
+7/12/2017 10:55,2/26/2017,88,6,Proestrus,between diestrus and proestrus?? not very clear
+7/12/2017 10:57,2/26/2017,88,7,Metestrus,between metestrus and diestrus
+7/12/2017 10:57,2/26/2017,88,8,Estrus,
+7/12/2017 10:58,2/26/2017,88,9,Diestrus,very early proestrus 
+7/12/2017 10:59,2/26/2017,88,10,Diestrus,Either late metestrus or early proestrus hard to tell
+7/12/2017 10:59,2/26/2017,88,11,Diestrus,very late metestrus
+7/12/2017 11:00,2/26/2017,88,12,Diestrus,early proestrus
+7/12/2017 11:33,2/26/2017,89,1,Estrus,
+7/12/2017 11:35,2/26/2017,89,2,Metestrus,
+7/12/2017 11:35,2/26/2017,89,3,Estrus,possibly very early metestrus
+7/12/2017 11:36,2/26/2017,89,4,Estrus,Early metestrus
+7/12/2017 11:38,2/26/2017,89,5,Diestrus,between diestrus and proestrus
+7/12/2017 11:39,2/26/2017,89,6,Estrus,
+7/12/2017 11:39,2/26/2017,89,7,Diestrus,early proestrus
+7/12/2017 11:40,2/26/2017,89,8,Estrus,
+7/12/2017 11:44,2/26/2017,89,9,Estrus,
+7/12/2017 11:44,2/26/2017,89,10,Diestrus,early proestrus
+7/12/2017 11:45,2/26/2017,89,11,Estrus,early metestrus
+7/12/2017 11:46,2/26/2017,89,12,Diestrus,between diestrus and proestrus
+7/12/2017 11:48,2/26/2017,90,1,No smear/Not clear (elaborate in notes),metestrus
+7/12/2017 11:49,2/26/2017,90,2,Diestrus,between proestrus and diestrus
+7/12/2017 11:50,2/26/2017,90,3,Proestrus,late diestrus
+7/12/2017 11:50,2/26/2017,90,4,Proestrus,late diestrus
+7/12/2017 11:53,2/26/2017,90,5,Estrus,either early metestrus or late proestrus but cannot tell based on the slide
+7/12/2017 11:53,2/26/2017,90,6,Estrus,early metestrus
+7/12/2017 11:55,2/26/2017,90,7,Diestrus,
+7/12/2017 11:56,2/26/2017,90,8,Metestrus,some signs of diestrus
+7/12/2017 11:57,2/26/2017,90,9,Metestrus,between metestrus and diestrus
+7/12/2017 11:58,2/26/2017,90,10,Estrus,
+7/12/2017 12:00,2/26/2017,90,11,Diestrus,late metestrus
+7/12/2017 12:01,2/26/2017,90,12,Metestrus,
+7/7/2017 14:57,2/27/2017,87,1,No smear/Not clear (elaborate in notes),late proestrus.. not a very good smear
+7/7/2017 14:59,2/27/2017,87,2,Estrus,
+7/7/2017 15:03,2/27/2017,87,3,Estrus,early metestrus
+7/7/2017 15:25,2/27/2017,87,4,Metestrus,
+7/7/2017 15:26,2/27/2017,87,5,Metestrus,
+7/7/2017 15:27,2/27/2017,87,6,Estrus,late proestrus
+7/7/2017 15:30,2/27/2017,87,7,Proestrus,Late diestrus
+7/7/2017 15:32,2/27/2017,87,8,Diestrus,
+7/7/2017 15:35,2/27/2017,87,9,Proestrus,
+7/7/2017 15:37,2/27/2017,87,10,Diestrus,
+7/7/2017 15:38,2/27/2017,87,11,Proestrus,it looks like proestrus but proestrus doesnt make sense.... possibly metestrus?
+7/7/2017 15:40,2/27/2017,87,12,Proestrus,
+7/7/2017 15:41,2/27/2017,88,1,Metestrus,
+7/7/2017 15:42,2/27/2017,88,2,Metestrus,between metestrus and diestrus
+7/7/2017 15:42,2/27/2017,88,3,Metestrus,between estrus and metestrus
+7/7/2017 15:43,2/27/2017,88,4,Metestrus,
+7/7/2017 15:45,2/27/2017,88,5,Estrus,
+7/7/2017 15:48,2/27/2017,88,6,No smear/Not clear (elaborate in notes),Proestrus??
+7/7/2017 15:49,2/27/2017,88,7,Metestrus,
+7/7/2017 15:50,2/27/2017,88,8,Metestrus,Early diestrus? hard to tell
+7/7/2017 15:51,2/27/2017,88,9,Diestrus,between diestrus and proestrus
+7/7/2017 15:52,2/27/2017,88,10,Estrus,between estrus and proestrus
+7/7/2017 15:53,2/27/2017,88,11,Proestrus,
+7/7/2017 15:54,2/27/2017,88,12,Proestrus,late diestrus
+7/7/2017 15:56,2/27/2017,89,1,Metestrus,
+7/7/2017 15:58,2/27/2017,89,2,Metestrus,
+7/7/2017 15:59,2/27/2017,89,3,Estrus,between estrus and early metestrus
+7/7/2017 16:00,2/27/2017,89,4,Metestrus,
+7/10/2017 10:08,2/27/2017,89,5,Proestrus,late diestrus
+7/10/2017 10:09,2/27/2017,89,6,Metestrus,
+7/10/2017 10:10,2/27/2017,89,7,Proestrus,not very clear
+7/10/2017 10:12,2/27/2017,89,8,Estrus,Early metestrus
+7/10/2017 10:15,2/27/2017,89,9,No smear/Not clear (elaborate in notes),
+7/10/2017 10:17,2/27/2017,89,10,Diestrus,very early proestrus
+7/10/2017 10:18,2/27/2017,89,11,Metestrus,late estrus
+7/10/2017 10:19,2/27/2017,89,12,Proestrus,
+7/10/2017 10:21,2/27/2017,90,1,Diestrus,late metestrus
+7/10/2017 10:23,2/27/2017,90,2,Diestrus,
+7/10/2017 10:23,2/27/2017,90,3,Proestrus,
+7/10/2017 10:25,2/27/2017,90,4,Proestrus,
+7/10/2017 10:27,2/27/2017,90,5,Estrus,
+7/10/2017 10:28,2/27/2017,90,6,Metestrus,
+7/10/2017 10:28,2/27/2017,90,7,Metestrus,Maybe... very few cells
+7/10/2017 10:36,2/27/2017,90,8,Metestrus,
+7/10/2017 10:43,2/27/2017,90,9,Diestrus,
+7/10/2017 10:45,2/27/2017,90,10,Diestrus,early proestrus
+7/10/2017 10:47,2/27/2017,90,11,Diestrus,between diestrus and proestrus
+7/10/2017 10:48,2/27/2017,90,12,Metestrus,
+7/10/2017 10:50,2/28/2017,87,1,Proestrus,between proestrus and estrus but not much of either
+7/10/2017 10:51,2/28/2017,87,2,Metestrus,
+7/10/2017 10:53,2/28/2017,87,3,Metestrus,early diestrus?
+7/10/2017 10:54,2/28/2017,87,4,Metestrus,between estrus and metestrus
+7/10/2017 10:55,2/28/2017,87,5,Metestrus,Possibly... hard to tell
+7/10/2017 11:06,2/28/2017,87,6,Estrus,
+7/10/2017 11:07,2/28/2017,87,7,Proestrus,early estrus
+7/10/2017 11:08,2/28/2017,87,8,No smear/Not clear (elaborate in notes),
+7/10/2017 11:10,2/28/2017,87,9,Proestrus,
+7/10/2017 11:12,2/28/2017,87,10,Proestrus,between proestrus and diestrus
+7/10/2017 11:16,2/28/2017,87,11,Diestrus,
+7/10/2017 11:17,2/28/2017,87,12,Estrus,
+7/10/2017 12:06,2/28/2017,88,1,Diestrus,
+7/10/2017 12:15,2/28/2017,88,2,Diestrus,
+7/10/2017 12:16,2/28/2017,88,3,Metestrus,between estrus and metestrus
+7/10/2017 12:17,2/28/2017,88,4,Metestrus,
+7/10/2017 12:21,2/28/2017,88,5,Estrus,
+7/10/2017 12:23,2/28/2017,88,6,Proestrus,
+7/10/2017 12:24,2/28/2017,88,7,No smear/Not clear (elaborate in notes),Diestrus?
+7/10/2017 12:31,2/28/2017,88,8,Estrus,
+7/10/2017 12:34,2/28/2017,88,9,Proestrus,between diestrus and proestrus
+7/10/2017 12:35,2/28/2017,88,10,Metestrus,
+7/10/2017 12:38,2/28/2017,88,11,No smear/Not clear (elaborate in notes),
+7/10/2017 12:39,2/28/2017,88,12,Estrus,late proestrus
+7/10/2017 13:21,2/28/2017,89,1,Metestrus,Between metestrus and diestrus
+7/10/2017 13:24,2/28/2017,89,2,Diestrus,between diestrus and metestrus
+7/10/2017 13:26,2/28/2017,89,3,Estrus,between metestrus and estrus
+7/10/2017 13:28,2/28/2017,89,4,Proestrus,between diestrus and proestrus
+7/10/2017 13:32,2/28/2017,89,5,Estrus,late proestrus
+7/10/2017 13:33,2/28/2017,89,6,Metestrus,late estrus
+7/10/2017 13:34,2/28/2017,89,7,Estrus,
+7/10/2017 13:37,2/28/2017,89,8,Metestrus,
+7/10/2017 14:19,2/28/2017,89,9,Metestrus,
+7/10/2017 14:22,2/28/2017,89,10,Diestrus,
+7/10/2017 14:22,2/28/2017,89,11,Metestrus,
+7/10/2017 14:24,2/28/2017,89,12,No smear/Not clear (elaborate in notes),proestrus?
+7/10/2017 14:32,2/28/2017,90,1,Diestrus,between diestrus and proestrus
+7/10/2017 14:33,2/28/2017,90,2,Proestrus,
+7/10/2017 14:36,2/28/2017,90,3,Diestrus,also has some proestrus
+7/10/2017 14:37,2/28/2017,90,4,Proestrus,early estrus
+7/10/2017 14:39,2/28/2017,90,5,Diestrus,late metestrus
+7/10/2017 14:50,2/28/2017,90,6,Diestrus,
+7/10/2017 14:52,2/28/2017,90,7,Diestrus,between metestrus and diestrus
+7/10/2017 14:53,2/28/2017,90,8,Diestrus,early proestrus
+7/10/2017 14:54,2/28/2017,90,9,Proestrus,between diestrus and proestrus
+7/10/2017 14:56,2/28/2017,90,10,Estrus,
+7/10/2017 14:57,2/28/2017,90,11,Proestrus,between diestrus and proestrus
+7/10/2017 14:59,2/28/2017,90,12,Metestrus,
+7/10/2017 15:01,3/1/2017,87,1,Proestrus,
+7/10/2017 15:03,3/1/2017,87,2,No smear/Not clear (elaborate in notes),
+7/10/2017 15:04,3/1/2017,87,3,Metestrus,
+7/10/2017 15:05,3/1/2017,87,4,Metestrus,
+7/10/2017 15:09,3/1/2017,87,5,Diestrus,
+7/10/2017 15:10,3/1/2017,87,6,Metestrus,between metestrus and diestrus
+7/10/2017 15:11,3/1/2017,87,7,Estrus,
+7/10/2017 15:14,3/1/2017,87,8,Metestrus,
+7/10/2017 15:16,3/1/2017,87,9,Proestrus,
+7/10/2017 15:17,3/1/2017,87,10,Estrus,
+7/10/2017 15:18,3/1/2017,87,11,No smear/Not clear (elaborate in notes),
+7/10/2017 15:19,3/1/2017,87,12,Metestrus,between estrus and metestrus
+7/10/2017 15:25,3/1/2017,88,1,Proestrus,Late diestrus
+7/10/2017 15:44,3/1/2017,88,2,No smear/Not clear (elaborate in notes),hard to tell... proestrus?
+7/10/2017 15:45,3/1/2017,88,3,Metestrus,between estrus and metestrus
+7/10/2017 15:47,3/1/2017,88,4,Metestrus,
+7/10/2017 15:49,3/1/2017,88,5,No smear/Not clear (elaborate in notes),
+7/10/2017 15:51,3/1/2017,88,6,Estrus,
+7/10/2017 15:51,3/1/2017,88,7,Diestrus,
+7/10/2017 15:52,3/1/2017,88,8,Estrus,late proestrus?
+7/10/2017 15:53,3/1/2017,88,9,Proestrus,early estrus
+7/10/2017 15:54,3/1/2017,88,10,Diestrus,
+7/10/2017 15:54,3/1/2017,88,11,Proestrus,hard to tell
+7/10/2017 15:58,3/1/2017,88,12,Proestrus,early estrus
+7/10/2017 16:01,3/1/2017,89,1,Proestrus,between diestrus and proestrus
+7/11/2017 9:45,3/1/2017,89,2,Diestrus,early proestrus
+7/11/2017 9:46,3/1/2017,89,3,Metestrus,
+7/11/2017 9:47,3/1/2017,89,4,Estrus,
+7/11/2017 9:57,3/1/2017,89,5,No smear/Not clear (elaborate in notes),not clear enough to tell the state
+7/11/2017 9:57,3/1/2017,89,6,No smear/Not clear (elaborate in notes),some early signs of metestrus but not a very good smear
+7/11/2017 9:59,3/1/2017,89,7,Metestrus,
+7/11/2017 9:59,3/1/2017,89,8,Metestrus,
+7/11/2017 10:47,3/1/2017,89,9,Diestrus,late metestrus
+7/11/2017 10:49,3/1/2017,89,10,Diestrus,
+7/11/2017 10:49,3/1/2017,89,11,Metestrus,
+7/11/2017 10:52,3/1/2017,89,12,Estrus,
+7/11/2017 10:54,3/1/2017,90,1,Proestrus,
+7/11/2017 10:54,3/1/2017,90,2,Proestrus,early estrus
+7/11/2017 10:56,3/1/2017,90,3,Proestrus,between diestrus and proestrus
+7/11/2017 10:59,3/1/2017,90,4,Proestrus,early estrus
+7/11/2017 10:59,3/1/2017,90,5,Diestrus,between proestrus and diestrus
+7/11/2017 11:02,3/1/2017,90,6,No smear/Not clear (elaborate in notes),possibly proestrus
+7/11/2017 11:03,3/1/2017,90,7,Diestrus,early proestrus
+7/11/2017 11:06,3/1/2017,90,8,No smear/Not clear (elaborate in notes),possibly diestrus
+7/11/2017 11:07,3/1/2017,90,9,Proestrus,
+7/11/2017 11:08,3/1/2017,90,10,Estrus,
+7/11/2017 11:08,3/1/2017,90,11,Proestrus,late diestrus
+7/11/2017 11:09,3/1/2017,90,12,Diestrus,
+7/11/2017 11:16,3/2/2017,87,1,Estrus,
+7/11/2017 11:17,3/2/2017,87,2,Diestrus,
+7/11/2017 11:17,3/2/2017,87,3,Metestrus,between metestrus and diestrus
+7/11/2017 11:18,3/2/2017,87,4,Metestrus,between estrus and metestrus
+7/11/2017 12:43,3/2/2017,87,5,Diestrus,
+7/11/2017 12:43,3/2/2017,87,6,Metestrus,Late estrus
+7/11/2017 13:06,3/2/2017,87,7,Diestrus,Between diestrus and metestrus but more on the diestrus side
+7/11/2017 13:06,3/2/2017,87,8,Metestrus,
+7/11/2017 13:08,3/2/2017,87,9,Proestrus,early estrus
+7/11/2017 13:10,3/2/2017,87,10,No smear/Not clear (elaborate in notes),
+7/11/2017 13:10,3/2/2017,87,11,Diestrus,very early signs of proestrus
+7/11/2017 13:11,3/2/2017,87,12,No smear/Not clear (elaborate in notes),possibly between metestrus and diestrus but really not clear
+7/11/2017 13:26,3/2/2017,88,1,Estrus,Late proestrus
+7/11/2017 13:27,3/2/2017,88,2,Proestrus,
+7/11/2017 13:28,3/2/2017,88,3,Metestrus,between estrus and metestrus
+7/11/2017 13:30,3/2/2017,88,4,Metestrus,
+7/11/2017 13:46,3/2/2017,88,5,No smear/Not clear (elaborate in notes),not clear
+7/11/2017 13:47,3/2/2017,88,6,No smear/Not clear (elaborate in notes),Estrus?
+7/11/2017 13:48,3/2/2017,88,7,Proestrus,Late diestrus
+7/11/2017 13:49,3/2/2017,88,8,Estrus,very early metestrus
+7/11/2017 13:54,3/2/2017,88,9,Proestrus,
+7/11/2017 13:56,3/2/2017,88,10,Diestrus,early proestrus
+7/11/2017 13:59,3/2/2017,88,11,Estrus,
+7/11/2017 13:59,3/2/2017,88,12,Estrus,
+7/11/2017 14:02,3/2/2017,89,1,Proestrus,between estrus and proestrus
+7/11/2017 14:03,3/2/2017,89,2,Proestrus,
+7/11/2017 14:04,3/2/2017,89,3,Estrus,
+7/11/2017 14:04,3/2/2017,89,4,Estrus,Early metestrus
+7/11/2017 14:06,3/2/2017,89,5,Diestrus,late metestrus
+7/11/2017 14:06,3/2/2017,89,6,Metestrus,
+7/11/2017 14:07,3/2/2017,89,7,Diestrus,between diestrus and proestrus
+7/11/2017 14:09,3/2/2017,89,8,Metestrus,
+7/11/2017 14:10,3/2/2017,89,9,Proestrus,between proestrus and estrus
+7/11/2017 14:11,3/2/2017,89,10,Proestrus,
+7/11/2017 14:11,3/2/2017,89,11,Diestrus,between diestrus and proestrus
+7/11/2017 14:15,3/2/2017,89,12,No smear/Not clear (elaborate in notes),
+7/11/2017 14:15,3/2/2017,90,1,Estrus,
+7/11/2017 14:16,3/2/2017,90,2,Proestrus,
+7/11/2017 14:17,3/2/2017,90,3,Proestrus,early estrus
+7/11/2017 14:18,3/2/2017,90,4,Proestrus,
+7/11/2017 14:20,3/2/2017,90,5,Diestrus,very late proestrus
+7/11/2017 14:20,3/2/2017,90,6,Estrus,
+7/11/2017 14:22,3/2/2017,90,7,No smear/Not clear (elaborate in notes),possibly proestrus? not clear enough
+7/11/2017 14:24,3/2/2017,90,8,Proestrus,
+7/11/2017 14:23,3/2/2017,90,9,Proestrus,
+7/11/2017 14:25,3/2/2017,90,10,Estrus,
+7/11/2017 14:26,3/2/2017,90,11,Proestrus,between diestrus and proestrus
+7/11/2017 14:27,3/2/2017,90,12,Diestrus,early proestrus
+7/11/2017 14:33,3/4/2017,87,1,No smear/Not clear (elaborate in notes),
+7/11/2017 14:35,3/4/2017,87,2,Estrus,late proestrus
+7/11/2017 14:37,3/4/2017,87,3,Diestrus,between diestrus and proestrus
+7/11/2017 14:38,3/4/2017,87,4,Diestrus,
+7/11/2017 14:40,3/4/2017,87,5,Proestrus,early estrus
+7/11/2017 14:41,3/4/2017,87,6,No smear/Not clear (elaborate in notes),not enough cells
+7/11/2017 14:42,3/4/2017,87,7,Diestrus,between diestrus and proestrus
+7/11/2017 14:42,3/4/2017,87,8,Diestrus,
+7/11/2017 14:45,3/4/2017,87,9,Estrus,
+7/11/2017 14:46,3/4/2017,87,10,Diestrus,
+7/11/2017 14:47,3/4/2017,87,11,Estrus,between estrus and proestrus
+7/11/2017 14:47,3/4/2017,87,12,No smear/Not clear (elaborate in notes),possibly proestrus
+7/11/2017 14:49,3/4/2017,88,1,Estrus,
+7/11/2017 14:50,3/4/2017,88,2,Proestrus,very early estrus
+7/11/2017 14:52,3/4/2017,88,3,Diestrus,late metestrus
+7/11/2017 14:53,3/4/2017,88,4,Metestrus,
+7/11/2017 14:56,3/4/2017,88,5,Estrus,
+7/11/2017 14:57,3/4/2017,88,6,Estrus,
+7/11/2017 14:57,3/4/2017,88,7,Estrus,
+7/11/2017 14:58,3/4/2017,88,8,Metestrus,
+7/11/2017 14:59,3/4/2017,88,9,Estrus,
+7/11/2017 15:00,3/4/2017,88,10,Proestrus,
+7/11/2017 15:00,3/4/2017,88,11,Estrus,between estrus and metestrus
+7/11/2017 15:01,3/4/2017,88,12,Metestrus,between diestrus and late metestrus
+7/12/2017 9:07,3/4/2017,89,1,Estrus,
+7/12/2017 9:08,3/4/2017,89,2,Estrus,
+7/12/2017 9:10,3/4/2017,89,3,Estrus,early metestrus
+7/12/2017 9:11,3/4/2017,89,4,Metestrus,
+7/12/2017 9:53,3/4/2017,89,5,Proestrus,
+7/12/2017 9:54,3/4/2017,89,6,Diestrus,
+7/12/2017 9:55,3/4/2017,89,7,Diestrus,
+7/12/2017 9:55,3/4/2017,89,8,Metestrus,Early diestrus
+7/12/2017 9:56,3/4/2017,89,9,Estrus,
+7/12/2017 9:57,3/4/2017,89,10,Estrus,
+7/12/2017 9:58,3/4/2017,89,11,No smear/Not clear (elaborate in notes),
+7/12/2017 9:59,3/4/2017,89,12,Estrus,
+7/12/2017 10:13,3/4/2017,90,1,Estrus,
+7/12/2017 10:13,3/4/2017,90,2,Proestrus,
+7/12/2017 10:14,3/4/2017,90,3,Estrus,between proestrus and estrus
+7/12/2017 10:17,3/4/2017,90,4,Estrus,not that clear
+7/12/2017 10:02,3/4/2017,90,5,Diestrus,
+7/12/2017 10:06,3/4/2017,90,6,Metestrus,
+7/12/2017 10:07,3/4/2017,90,7,Estrus,
+7/12/2017 10:08,3/4/2017,90,8,Estrus,
+7/12/2017 10:20,3/4/2017,90,9,Proestrus,early estrus
+7/12/2017 10:21,3/4/2017,90,10,Diestrus,late metestrus
+7/12/2017 10:21,3/4/2017,90,11,Proestrus,
+7/12/2017 10:22,3/4/2017,90,12,Proestrus,between proestrus and diestrus
+7/12/2017 13:48,3/5/2017,87,1,Metestrus,
+7/12/2017 13:48,3/5/2017,87,2,Estrus,
+7/12/2017 13:49,3/5/2017,87,3,Diestrus,
+7/12/2017 13:55,3/5/2016,87,4,Diestrus,Between diestrus and proestrus
+7/12/2017 13:57,3/5/2017,87,5,Estrus,
+7/12/2017 13:58,3/5/2017,87,6,Diestrus,between diestrus and proestrus
+7/12/2017 14:08,3/5/2017,87,7,Estrus,late proestrus
+7/12/2017 14:08,3/5/2017,87,8,Proestrus,
+7/12/2017 14:09,3/5/2017,87,9,Diestrus,
+7/12/2017 14:10,3/5/2017,87,10,Diestrus,early proestrus
+7/12/2017 14:11,3/5/2017,87,11,Estrus,
+7/12/2017 14:12,3/5/2017,87,12,Estrus,
+7/12/2017 14:13,3/5/2017,88,1,Estrus,
+7/12/2017 14:14,3/5/2017,88,2,Proestrus,
+7/12/2017 14:15,3/5/2017,88,3,Diestrus,
+7/12/2017 14:16,3/5/2017,88,4,Metestrus,
+7/12/2017 14:17,3/5/2017,88,5,Estrus,
+7/12/2017 14:18,3/5/2017,88,6,Estrus,
+7/12/2017 14:18,3/5/2017,88,7,Estrus,
+7/12/2017 14:19,3/5/2017,88,8,Diestrus,
+7/12/2017 14:20,3/5/2017,88,9,Estrus,
+7/12/2017 14:21,3/5/2017,88,10,Proestrus,
+7/12/2017 14:22,3/5/2017,88,11,Metestrus,
+7/12/2017 14:23,3/5/2017,88,12,Metestrus,between metestrus and diestrus
+7/12/2017 14:24,3/5/2017,89,1,Diestrus,
+7/12/2017 14:25,3/5/2017,89,2,Estrus,between estrus and early metestrus
+7/12/2017 14:25,3/5/2017,89,3,Estrus,
+7/12/2017 14:26,3/5/2017,89,4,Diestrus,either late metestrus or early proestrus
+7/12/2017 14:27,3/5/2017,89,5,Estrus,
+7/12/2017 14:28,3/5/2017,89,6,Diestrus,early proestrus
+7/12/2017 14:28,3/5/2017,89,7,Proestrus,
+7/12/2017 14:29,3/5/2017,89,8,Diestrus,
+7/12/2017 14:30,3/5/2017,89,9,Metestrus,between metestrus and diestrus
+7/12/2017 14:30,3/5/2017,89,10,Diestrus,very small signs of late metestrus
+7/12/2017 14:31,3/5/2017,89,11,Diestrus,very early proestrus
+7/12/2017 14:32,3/5/2017,89,12,Metestrus,
+7/12/2017 14:34,3/5/2017,90,1,Estrus,
+7/12/2017 14:34,3/5/2017,90,2,Estrus,between proestrus and estrus
+7/12/2017 14:37,3/3/2017,90,3,No smear/Not clear (elaborate in notes),proestrus?? metestrus?
+7/12/2017 14:37,3/5/2017,90,4,Metestrus,
+7/12/2017 14:40,3/5/2017,90,5,Proestrus,
+7/12/2017 14:40,3/5/2017,90,6,Metestrus,
+7/12/2017 14:41,3/5/2017,90,7,Estrus,
+7/12/2017 14:41,3/5/2017,90,8,Estrus,
+7/12/2017 14:42,3/5/2017,90,9,Proestrus,
+7/12/2017 14:44,3/5/2017,90,10,Proestrus,
+7/12/2017 14:44,3/5/2017,90,11,Proestrus,
+7/12/2017 14:45,3/5/2017,90,12,Proestrus,
+7/12/2017 14:46,3/6/2017,89,1,Diestrus,
+7/12/2017 14:47,3/6/2017,89,2,Diestrus,
+7/12/2017 14:48,3/6/2017,89,3,Estrus,
+7/12/2017 14:50,3/6/2017,89,4,Proestrus,early estrus
+7/12/2017 14:53,3/6/2017,89,5,Estrus,
+7/12/2017 14:53,3/6/2017,89,6,Proestrus,
+7/12/2017 14:53,3/6/2017,89,7,Estrus,
+7/12/2017 14:55,3/6/2017,89,8,Proestrus,between diestrus and proestrus
+7/12/2017 14:57,3/6/2017,89,9,Diestrus,late metestrus
+7/12/2017 14:57,3/6/2017,89,10,No smear/Not clear (elaborate in notes),diestrus? early proestrus? not enough to determine 
+7/12/2017 14:58,3/6/2017,89,11,Diestrus,
+7/12/2017 14:58,3/6/2017,89,12,No smear/Not clear (elaborate in notes),metestrus?
+7/12/2017 14:59,3/6/2017,90,1,Estrus,
+7/12/2017 14:59,3/6/2017,90,2,Estrus,
+7/12/2017 15:00,3/6/2017,90,3,Metestrus,
+7/12/2017 15:01,3/6/2017,90,4,Estrus,
+7/13/2017 9:14,3/6/2017,90,5,Proestrus,
+7/13/2017 9:16,3/6/2017,90,6,No smear/Not clear (elaborate in notes),
+7/13/2017 9:16,3/6/2017,90,7,Metestrus,
+7/13/2017 9:17,3/6/2017,90,8,Estrus,early metestrus
+7/13/2017 9:19,3/6/2017,90,9,Proestrus,
+7/13/2017 9:20,3/6/2017,90,10,Proestrus,
+7/13/2017 9:20,3/6/2017,90,11,Estrus,
+7/13/2017 9:21,3/6/2017,90,12,Proestrus,
+7/13/2017 9:22,3/7/2017,89,1,Proestrus,
+7/13/2017 9:23,3/7/2017,89,2,Estrus,not very clear
+7/13/2017 9:25,3/7/2017,89,3,Metestrus,between estrus and metestrus
+7/13/2017 9:26,3/7/2017,89,4,Estrus,
+7/13/2017 9:27,3/7/2017,89,5,Metestrus,
+7/13/2017 9:27,3/7/2017,89,6,Proestrus,
+7/13/2017 9:28,3/7/2017,89,7,Estrus,
+7/13/2017 9:29,3/7/2017,89,8,Proestrus,late diestrus
+7/13/2017 9:30,3/7/2017,89,9,Diestrus,between diestrus and proestrus
+7/13/2017 9:30,3/7/2017,89,10,Diestrus,early proestrus
+7/13/2017 9:31,3/7/2017,89,11,Proestrus,
+7/13/2017 9:32,3/7/2017,89,12,Metestrus,
+7/13/2017 9:33,3/7/2017,90,1,Estrus,
+7/13/2017 9:33,3/7/2017,90,2,Estrus,early metestrus
+7/13/2017 9:34,3/7/2017,90,3,Metestrus,between proestrus and diestrus
+7/13/2017 9:35,3/7/2017,90,4,Metestrus,
+7/13/2017 9:35,3/7/2017,90,5,Proestrus,very early estrus
+7/13/2017 9:36,3/7/2017,90,6,Estrus,
+7/13/2017 9:36,3/7/2017,90,7,Metestrus,between metestrus and diestrus
+7/13/2017 9:37,3/7/2017,90,8,Estrus,early metestrus
+7/13/2017 9:38,3/7/2017,90,9,Proestrus,
+7/13/2017 9:38,3/7/2017,90,10,Proestrus,early estrus
+7/13/2017 9:39,3/7/2017,90,11,Metestrus,
+7/13/2017 9:39,3/7/2017,90,12,Proestrus,
+7/17/2017 10:08,3/20/2017,91,1,Estrus,early metestrus 
+7/17/2017 10:09,3/20/2017,91,2,Estrus,late proestrus
+7/17/2017 10:09,3/20/2017,91,3,Proestrus,late diestrus
+7/17/2017 10:11,3/20/2017,91,4,Estrus,late proestrus
+7/17/2017 10:13,3/20/2017,91,5,Proestrus,late diestrus
+7/17/2017 10:15,3/20/2017,91,6,Proestrus,In between proestrus and estrus
+7/17/2017 10:16,3/20/2017,91,7,Estrus,
+7/17/2017 10:19,3/20/2017,91,8,Metestrus,
+7/17/2017 10:21,3/20/2017,91,9,Proestrus,between proestrus and diestrus
+7/17/2017 10:22,3/20/2017,91,10,Diestrus,possibly early proestrus
+7/17/2017 10:24,3/20/2017,91,11,Proestrus,between proestrus and diestrus
+7/17/2017 10:26,3/20/2017,91,12,Estrus,late proestrus
+7/17/2017 10:28,3/20/2017,92,1,Metestrus,
+7/17/2017 10:29,3/20/2017,92,2,Diestrus,
+7/17/2017 10:30,3/20/2017,92,3,Metestrus,
+7/17/2017 10:32,3/20/2017,92,4,Diestrus,early proestrus
+7/17/2017 10:35,3/20/2017,92,5,Diestrus,between diestrus and proestrus
+7/17/2017 10:36,3/20/2017,92,6,Metestrus,
+7/17/2017 10:37,3/20/2017,92,7,Proestrus,
+7/17/2017 10:39,3/20/2017,92,8,Estrus,
+7/17/2017 10:42,3/20/2017,92,9,Proestrus,early estrus
+7/17/2017 10:43,3/20/2017,92,10,Diestrus,
+7/17/2017 11:05,3/20/2017,92,11,Proestrus,
+7/17/2017 11:09,3/20/2017,92,12,Estrus,late proestrus
+7/17/2017 11:12,3/21/2017,91,1,Metestrus,
+7/17/2017 11:14,3/21/2017,91,2,Estrus,
+7/17/2017 11:17,3/21/2017,91,3,Estrus,
+7/17/2017 11:23,3/21/2017,91,4,Estrus,
+7/17/2017 11:28,3/21/2017,91,5,Estrus,between proestrus and estrus
+7/17/2017 11:31,3/21/2017,91,6,Estrus,
+7/17/2017 11:31,3/21/2017,91,7,Estrus,
+7/17/2017 11:33,3/21/2017,91,8,Metestrus,not very clear
+7/17/2017 11:36,3/21/2017,91,9,Proestrus,between proestrus and diestrus
+7/17/2017 11:37,3/21/2017,91,10,Estrus,
+7/17/2017 11:40,3/21/2017,91,11,Proestrus,late diestrus
+7/17/2017 11:41,3/21/2017,91,12,Estrus,
+7/17/2017 11:47,3/21/2017,92,1,Metestrus,
+7/17/2017 11:48,3/21/2017,92,2,Diestrus,early proestrus
+7/17/2017 11:49,3/21/2017,92,3,Metestrus,
+7/17/2017 11:49,3/21/2017,92,4,Proestrus,
+7/17/2017 12:18,3/21/2017,92,5,Proestrus,
+7/17/2017 12:19,3/21/2017,92,6,Metestrus,
+7/17/2017 12:21,3/21/2017,92,7,Proestrus,early estrus
+7/17/2017 12:22,3/21/2017,92,8,Estrus,
+7/17/2017 12:26,3/21/2017,92,9,No smear/Not clear (elaborate in notes),
+7/17/2017 12:27,3/21/2017,92,10,Proestrus,
+7/17/2017 12:28,3/21/2017,92,11,Estrus,late proestrus
+7/17/2017 12:32,3/21/2017,92,12,Estrus,
+7/17/2017 12:42,3/21/2017,93,1,Diestrus,early proestrus
+7/17/2017 12:43,3/21/2017,93,2,Metestrus,late estrus
+7/17/2017 12:44,3/21/2017,93,3,Proestrus,
+7/17/2017 12:45,3/21/2017,93,4,Estrus,
+7/17/2017 12:46,3/21/2017,93,5,Estrus,late proestrus
+7/17/2017 12:47,3/21/2017,93,6,Diestrus,early proestrus
+7/17/2017 12:49,3/21/2017,93,7,Metestrus,
+7/17/2017 12:50,3/21/2017,93,8,Metestrus,
+7/17/2017 12:52,3/21/2017,93,9,Metestrus,
+7/17/2017 12:54,3/21/2017,93,10,Proestrus,between diestrus and proestrus
+7/17/2017 12:55,3/21/2017,93,11,Estrus,
+7/17/2017 12:56,3/21/2017,93,12,Diestrus,between diestrus and proestrus
+7/17/2017 12:58,3/21/2017,94,1,Diestrus,late metestrus
+7/17/2017 13:00,3/21/2017,94,2,Estrus,possibly early metestrus
+7/17/2017 13:01,3/21/2017,94,3,Proestrus,between diestrus and proestrus
+7/17/2017 13:02,3/21/2017,94,4,Proestrus,late ditestrus
+7/17/2017 13:05,3/21/2017,94,5,Proestrus,
+7/17/2017 13:07,3/21/2017,94,6,Estrus,
+7/17/2017 13:08,3/21/2017,94,7,Estrus,possibly early metestrus
+7/17/2017 13:11,3/21/2017,94,8,Diestrus,early proestrus
+7/17/2017 13:14,3/21/2017,94,9,Estrus,early metestrus
+7/17/2017 13:15,3/21/2017,94,10,Proestrus,
+7/17/2017 13:16,3/21/2017,94,11,Estrus,
+7/17/2017 13:16,3/21/2017,94,12,Proestrus,
+7/17/2017 13:42,3/22/2017,91,1,Metestrus,
+7/17/2017 13:42,3/22/2017,91,2,Estrus,
+7/17/2017 13:44,3/22/2017,91,3,Metestrus,between metestrus and diestrus
+7/17/2017 13:45,3/22/2017,91,4,Proestrus,
+7/17/2017 13:47,3/22/2017,91,5,Estrus,
+7/17/2017 13:47,3/22/2017,91,6,Estrus,
+7/17/2017 13:48,3/22/2017,91,7,Estrus,
+7/17/2017 13:48,3/22/2017,91,8,Metestrus,
+7/17/2017 13:51,3/22/2017,91,9,Proestrus,between diestrus and proestrus
+7/17/2017 13:51,3/22/2017,91,10,Estrus,
+7/17/2017 13:52,3/22/2017,91,11,Proestrus,
+7/17/2017 13:52,3/22/2017,91,12,Estrus,
+7/17/2017 13:54,3/22/2017,92,1,Diestrus,late metestrus
+7/17/2017 13:56,3/22/2017,92,2,Proestrus,between proestrus and estrus
+7/17/2017 13:57,3/22/2017,92,3,Metestrus,not very clear
+7/17/2017 13:58,3/22/2017,92,4,Estrus,
+7/17/2017 14:00,3/22/2017,92,5,Proestrus,between proestrus and estrus
+7/17/2017 14:00,3/22/2017,92,6,Diestrus,
+7/17/2017 14:01,3/22/2017,92,7,Proestrus,early estrus
+7/17/2017 14:02,3/22/2017,92,8,Estrus,
+7/17/2017 14:04,3/22/2017,92,9,Estrus,
+7/17/2017 14:07,3/22/2017,92,10,Proestrus,
+7/17/2017 14:08,3/22/2017,92,11,Estrus,
+7/17/2017 14:08,3/22/2017,92,12,Estrus,
+7/17/2017 14:13,3/22/2017,93,1,Proestrus,between proestrus and estrus
+7/17/2017 14:14,3/22/2017,93,2,Metestrus,
+7/17/2017 14:14,3/22/2017,93,3,Proestrus,
+7/17/2017 14:15,3/22/2017,93,4,Estrus,
+7/17/2017 14:16,3/22/2017,93,5,Estrus,
+7/17/2017 14:17,3/22/2017,93,6,Proestrus,late diestrus
+7/17/2017 14:18,3/22/2017,93,7,Diestrus,late metestrus
+7/17/2017 14:19,3/22/2017,93,8,No smear/Not clear (elaborate in notes),
+7/17/2017 14:21,3/22/2017,93,9,Estrus,
+7/17/2017 14:24,3/22/2017,93,10,Proestrus,
+7/17/2017 14:24,3/22/2017,93,11,Estrus,possibly early metestrus
+7/17/2017 14:24,3/22/2017,93,12,Proestrus,
+7/17/2017 14:28,3/22/2017,94,1,Estrus,late proestrus
+7/17/2017 14:29,3/22/2017,94,2,Estrus,
+7/17/2017 14:30,3/22/2017,94,3,Proestrus,
+7/17/2017 14:31,3/22/2017,94,4,Proestrus,between proestrus and estrus
+7/17/2017 14:32,3/22/2017,94,5,Estrus,
+7/17/2017 14:32,3/22/2017,94,6,Estrus,
+7/17/2017 14:33,3/22/2017,94,7,Estrus,possibly early metestrus
+7/17/2017 14:34,3/22/2017,94,8,Diestrus,
+7/17/2017 14:35,3/22/2017,94,9,Estrus,
+7/17/2017 14:35,3/22/2017,94,10,Proestrus,
+7/17/2017 14:36,3/22/2017,94,11,Estrus,
+7/17/2017 14:36,3/22/2017,94,12,Estrus,
+7/17/2017 14:46,3/23/2017,91,1,Diestrus,Early proestrus
+7/17/2017 14:47,3/23/2017,91,2,Estrus,
+7/17/2017 14:47,3/23/2017,91,3,Metestrus,
+7/17/2017 14:48,3/23/2017,91,4,Metestrus,
+7/17/2017 14:49,3/23/2017,91,5,Estrus,
+7/17/2017 14:50,3/23/2017,91,6,Metestrus,
+7/17/2017 14:50,3/23/2017,91,7,Estrus,very early metestrus
+7/17/2017 14:52,3/23/2017,91,8,Estrus,early metestrus
+7/17/2017 14:53,3/23/2017,91,9,Proestrus,
+7/17/2017 14:54,3/23/2017,91,10,Estrus,
+7/17/2017 14:54,3/23/2017,91,11,Diestrus,
+7/17/2017 14:55,3/23/2017,91,12,Metestrus,
+7/17/2017 14:57,3/23/2017,92,1,Proestrus,between diestrus and proestrus
+7/17/2017 14:57,3/23/2017,92,2,Estrus,late proestrus
+7/17/2017 14:58,3/23/2017,92,3,Metestrus,
+7/17/2017 14:58,3/23/2017,92,4,Metestrus,
+7/17/2017 14:59,3/23/2017,92,5,Proestrus,early estrus
+7/17/2017 15:00,3/23/2017,92,6,Diestrus,
+7/17/2017 15:02,3/23/2017,92,7,Proestrus,not clear
+7/17/2017 15:03,3/23/2017,92,8,Metestrus,
+7/17/2017 15:03,3/23/2017,92,9,Estrus,
+7/17/2017 15:04,3/23/2017,92,10,Proestrus,
+7/17/2017 15:04,3/23/2017,92,11,Estrus,
+7/17/2017 15:04,3/23/2017,92,12,Metestrus,
+7/18/2017 8:59,3/23/2017,93,1,Estrus,
+7/18/2017 9:00,3/23/2017,93,2,Metestrus,
+7/18/2017 9:00,3/23/2017,93,3,Proestrus,
+7/18/2017 9:01,3/23/2017,93,4,Metestrus,between estrus and metestrus
+7/18/2017 9:02,3/23/2017,93,5,Metestrus,
+7/18/2017 9:03,3/23/2017,93,6,Proestrus,
+7/18/2017 9:04,3/23/2017,93,7,Proestrus,
+7/18/2017 9:05,3/23/2017,93,8,Metestrus,
+7/18/2017 9:08,3/23/2017,93,9,Metestrus,possibly estrus? not very clear
+7/18/2017 9:08,3/23/2017,93,10,Proestrus,
+7/18/2017 9:08,3/23/2017,93,11,Estrus,
+7/18/2017 9:09,3/23/2017,93,12,Proestrus,late diestrus
+7/18/2017 9:22,3/23/2017,94,1,Metestrus,
+7/18/2017 9:22,3/23/2017,94,2,Estrus,
+7/18/2017 9:23,3/23/2017,94,3,Proestrus,
+7/18/2017 9:24,3/23/2017,94,4,Proestrus,between proestrus and estrus
+7/18/2017 9:24,3/23/2017,94,5,Estrus,
+7/18/2017 9:26,3/23/2017,94,6,Metestrus,late estrus
+7/18/2017 9:27,3/23/2017,94,7,Metestrus,
+7/18/2017 9:27,3/23/2017,94,8,Proestrus,early estrus
+7/18/2017 9:29,3/23/2017,94,9,Estrus,
+7/18/2017 9:30,3/23/2017,94,10,Proestrus,
+7/18/2017 9:31,3/23/2017,94,11,Metestrus,
+7/18/2017 9:31,3/23/2017,94,12,Estrus,
+7/18/2017 9:35,3/24/2017,91,1,Diestrus,Between diestrus and proestrus
+7/18/2017 9:36,3/24/2017,91,2,Metestrus,
+7/18/2017 9:37,3/24/2017,91,3,Diestrus,early proestrus
+7/18/2017 9:41,3/24/2017,91,4,Diestrus,late metestrus.... not very clear
+7/18/2017 9:42,3/24/2017,91,5,Metestrus,
+7/18/2017 9:43,3/24/2017,91,6,Metestrus,
+7/18/2017 9:43,3/24/2017,91,7,Estrus,early metestrus
+7/18/2017 9:46,3/24/2017,91,8,Estrus,
+7/18/2017 9:49,3/24/2017,91,9,Diestrus,
+7/18/2017 9:50,3/24/2017,91,10,Estrus,early metestrus
+7/18/2017 9:51,3/24/2017,91,11,Proestrus,
+7/18/2017 9:52,3/24/2017,91,12,Metestrus,
+7/18/2017 9:53,3/24/2017,92,1,Proestrus,
+7/18/2017 9:54,3/24/2017,92,2,Estrus,late proestrus
+7/18/2017 9:54,3/24/2017,92,3,Diestrus,early proestrus
+7/18/2017 9:58,3/24/2017,92,4,Estrus,
+7/18/2017 9:59,3/24/2017,92,5,Proestrus,late diestrus
+7/18/2017 9:59,3/24/2017,92,6,Diestrus,early proestrus
+7/18/2017 10:02,3/24/2017,92,7,Proestrus,
+7/18/2017 10:23,3/24/2017,92,8,Metestrus,
+7/18/2017 10:27,3/24/2017,92,9,Metestrus,
+7/18/2017 10:28,3/24/2017,92,10,Proestrus,
+7/18/2017 10:32,3/24/2017,92,11,Metestrus,
+7/18/2017 10:33,3/24/2017,92,12,Metestrus,
+7/18/2017 10:35,3/24/2017,93,1,Estrus,
+7/18/2017 10:35,3/24/2017,93,2,Proestrus,
+7/18/2017 10:36,3/24/2017,93,3,Proestrus,
+7/18/2017 10:37,3/24/2017,93,4,Diestrus,
+7/18/2017 10:39,3/24/2017,93,5,Diestrus,
+7/18/2017 10:40,3/24/2017,93,6,Proestrus,
+7/18/2017 10:42,3/24/2017,93,7,Proestrus,
+7/18/2017 10:43,3/24/2017,93,8,Estrus,
+7/18/2017 10:44,3/24/2017,93,9,Metestrus,between estrus and metestrus
+7/18/2017 10:45,3/24/2017,93,10,No smear/Not clear (elaborate in notes),
+7/18/2017 10:47,3/24/2017,93,11,Estrus,
+7/18/2017 10:48,3/24/2017,93,12,Proestrus,
+7/18/2017 10:49,3/24/2017,94,1,Diestrus,
+7/18/2017 10:49,3/24/2017,94,2,Estrus,early metestrus
+7/18/2017 10:50,3/24/2017,94,3,Proestrus,early estrus
+7/18/2017 10:51,3/24/2017,94,4,Estrus,late proestrus
+7/18/2017 10:52,3/24/2017,94,5,Estrus,
+7/18/2017 10:52,3/24/2017,94,6,Metestrus,between metestrus and diestrus
+7/18/2017 10:54,3/24/2017,94,7,Metestrus,
+7/18/2017 10:55,3/24/2017,94,8,Proestrus,between proestrus and estrus
+7/18/2017 10:59,3/24/2017,94,9,No smear/Not clear (elaborate in notes),possibly metestrus but not clear
+7/18/2017 11:01,3/24/2017,94,10,Diestrus,
+7/18/2017 11:02,3/24/2017,94,11,Metestrus,
+7/18/2017 11:03,3/24/2017,94,12,Metestrus,late estrus
+7/18/2017 11:04,3/25/2017,91,1,Proestrus,early estrus
+7/18/2017 11:06,3/25/2017,91,2,No smear/Not clear (elaborate in notes),not enough on the slide
+7/18/2017 11:10,3/25/2017,91,3,Proestrus,between proestrus and estrus
+7/18/2017 11:16,3/25/2017,91,4,Diestrus,early proestrus
+7/18/2017 11:19,3/25/2017,91,5,Metestrus,
+7/18/2017 11:25,3/25/2017,91,6,Metestrus,
+7/18/2017 11:27,3/25/2017,91,7,Estrus,
+7/18/2017 11:41,3/25/2017,91,8,Metestrus,
+7/18/2017 12:15,3/25/2017,91,9,Diestrus,
+7/18/2017 12:16,3/25/2017,91,10,Metestrus,
+7/18/2017 12:17,3/25/2017,91,11,Estrus,late proestrus
+7/18/2017 12:17,3/25/2017,91,12,Metestrus, between estrus and metestrus
+7/18/2017 12:18,3/25/2017,92,1,Proestrus,
+7/18/2017 12:20,3/24/2017,92,2,Estrus,
+7/18/2017 12:21,3/25/2017,92,3,Diestrus,
+7/18/2017 12:21,3/25/2017,92,4,Estrus,
+7/18/2017 12:24,3/25/2017,92,5,Estrus,
+7/18/2017 12:24,3/25/2017,92,6,Proestrus,
+7/18/2017 12:25,3/25/2017,92,7,Proestrus,
+7/18/2017 12:26,3/25/2017,92,8,Metestrus,
+7/18/2017 12:28,3/25/2017,92,9,Metestrus,
+7/18/2017 12:30,3/25/2017,92,10,Proestrus,early estrus
+7/18/2017 12:35,3/25/2017,92,11,Metestrus,
+7/18/2017 12:38,3/25/2017,92,12,Diestrus,early proestrus
+7/18/2017 12:39,3/25/2017,93,1,Metestrus,
+7/18/2017 12:40,3/25/2017,93,2,Proestrus,early estrus
+7/18/2017 12:41,3/25/2017,93,3,Proestrus,early estrus
+7/18/2017 12:42,3/25/2017,93,4,Diestrus,
+7/18/2017 12:44,3/25/2017,93,5,Diestrus,early proestrus
+7/18/2017 12:45,3/25/2017,93,6,Diestrus,
+7/18/2017 12:46,3/25/2017,93,7,Proestrus,
+7/18/2017 12:47,3/25/2017,93,8,Estrus,
+7/18/2017 12:49,3/25/2017,93,9,Metestrus,
+7/18/2017 12:51,3/25/2017,93,10,Diestrus,early proestrus
+7/18/2017 12:53,3/25/2017,93,11,Estrus,
+7/18/2017 12:53,3/25/2017,93,12,Proestrus,
+7/18/2017 12:56,3/25/2017,94,1,Proestrus,
+7/18/2017 12:57,3/25/2017,94,2,Metestrus,
+7/18/2017 12:58,3/25/2017,94,3,Proestrus,
+7/18/2017 12:59,3/25/2017,94,4,Metestrus,between estrus and metestrus
+7/18/2017 13:00,3/25/2017,94,5,Estrus,
+7/18/2017 13:01,3/25/2017,94,6,Diestrus,
+7/18/2017 13:03,3/25/2017,94,7,Metestrus,
+7/18/2017 13:04,3/25/2017,94,8,Estrus,
+7/18/2017 13:07,3/25/2017,94,9,Proestrus,
+7/18/2017 13:08,3/25/2017,94,10,Proestrus,early estrus
+7/18/2017 13:09,3/25/2017,94,11,Metestrus,
+7/18/2017 13:13,3/25/2017,94,12,Metestrus,
+7/18/2017 13:15,3/26/2017,91,1,Proestrus,
+7/18/2017 13:18,3/26/2017,91,2,No smear/Not clear (elaborate in notes),proestrus? metestrus? not much on the slide
+7/18/2017 13:21,3/26/2017,91,3,Proestrus,
+7/18/2017 13:23,3/26/2017,91,4,Diestrus,early proestrus
+7/18/2017 13:24,3/26/2017,91,5,Metestrus,early diestrus
+7/18/2017 13:25,3/26/2017,91,6,Metestrus,
+7/18/2017 13:25,3/26/2017,91,7,Estrus,
+7/18/2017 13:27,3/26/2017,91,8,Diestrus,
+7/18/2017 13:28,3/26/2017,91,9,Proestrus,
+7/18/2017 13:29,3/26/2017,91,10,Metestrus,
+7/18/2017 13:30,3/26/2017,91,11,Estrus,
+7/18/2017 13:31,3/26/2017,91,12,Estrus,
+7/18/2017 13:37,3/26/2017,92,1,Proestrus,
+7/18/2017 13:37,3/26/2017,92,2,Estrus,
+7/18/2017 13:38,3/26/2017,92,3,Proestrus,early estrus
+7/18/2017 13:44,3/26/2017,92,4,Estrus,early metestrus
+7/18/2017 13:45,3/26/2017,92,5,Estrus,early metestrus
+7/18/2017 13:46,3/26/2017,92,6,Proestrus,
+7/18/2017 13:46,3/26/2017,92,7,Proestrus,early estrus
+7/18/2017 13:57,3/26/2017,92,8,Diestrus,
+7/18/2017 14:00,3/26/2017,92,9,Metestrus,
+7/18/2017 14:01,3/26/2017,92,10,Proestrus,early estrus
+7/18/2017 14:03,3/26/2017,92,11,No smear/Not clear (elaborate in notes),
+7/18/2017 14:05,3/26/2017,92,12,Proestrus,
+7/18/2017 14:07,3/26/2017,93,1,Metestrus,
+7/18/2017 14:07,3/26/2017,93,2,Estrus,
+7/18/2017 14:10,3/26/2017,93,3,Estrus,late proestrus
+7/18/2017 14:10,3/26/2017,93,4,Diestrus,early proestrus
+7/18/2017 14:16,3/26/2017,93,5,Proestrus,late diestrus
+7/18/2017 14:18,3/26/2017,93,6,Diestrus,
+7/18/2017 14:18,3/26/2017,93,7,Proestrus,
+7/18/2017 14:19,3/26/2017,93,8,Estrus,
+7/18/2017 14:21,3/26/2017,93,9,Metestrus,
+7/18/2017 14:22,3/26/2017,93,10,Diestrus,
+7/18/2017 14:23,3/26/2017,93,11,Estrus,early proestrus
+7/18/2017 14:25,3/26/2017,93,12,Proestrus,early estrus
+7/18/2017 14:28,3/26/2017,94,1,Proestrus,early estrus
+7/18/2017 14:29,3/26/2017,94,2,Diestrus,
+7/18/2017 14:30,3/26/2017,94,3,Proestrus,early estrus
+7/18/2017 14:30,3/26/2017,94,4,Diestrus,late metestrus
+7/18/2017 14:31,3/26/2017,94,5,Estrus,
+7/18/2017 14:32,3/26/2017,94,6,Diestrus,between diestrus and proestrus
+7/18/2017 14:33,3/26/2017,94,7,Diestrus,
+7/18/2017 14:33,3/26/2017,94,8,Metestrus,
+7/18/2017 14:37,3/26/2017,94,9,Proestrus,
+7/18/2017 14:40,3/26/2017,94,10,Estrus,
+7/18/2017 14:41,3/26/2017,94,11,Estrus,
+7/18/2017 14:43,3/26/2017,94,12,Metestrus,
+7/18/2017 14:45,3/27/2017,91,1,No smear/Not clear (elaborate in notes),
+7/18/2017 14:54,3/27/2017,91,2,Metestrus,??? not v clear
+7/18/2017 14:58,3/27/2017,91,3,Proestrus,early estrus
+7/18/2017 14:59,3/27/2017,91,4,No smear/Not clear (elaborate in notes),
+7/18/2017 14:59,3/27/2017,91,5,Metestrus,
+7/18/2017 15:00,3/27/2017,91,6,Metestrus,
+7/18/2017 15:00,3/27/2017,91,7,Estrus,
+7/18/2017 15:01,3/27/2017,91,8,Proestrus,
+7/19/2017 9:13,3/27/2017,91,9,Proestrus,between proestrus and estrus
+7/19/2017 9:15,3/27/2017,91,10,No smear/Not clear (elaborate in notes),
+7/19/2017 9:15,3/27/2017,91,11,Metestrus,between metestrus and diestrus
+7/19/2017 9:16,3/27/2017,91,12,Estrus,
+7/19/2017 9:19,3/27/2017,92,1,Proestrus,
+7/19/2017 9:20,3/27/2017,92,2,Estrus,late proestrus
+7/19/2017 9:21,3/27/2017,92,3,Proestrus,early estrus
+7/19/2017 9:22,3/27/2017,92,4,Estrus,
+7/19/2017 9:23,3/27/2017,92,5,Estrus,
+7/19/2017 9:23,3/27/2017,92,6,Proestrus,
+7/19/2017 9:24,3/27/2017,92,7,Estrus,
+7/19/2017 9:25,3/27/2017,92,8,Proestrus,
+7/19/2017 9:29,3/27/2017,92,9,Metestrus,
+7/19/2017 9:32,3/27/2017,92,10,Proestrus,
+7/19/2017 9:33,3/27/2017,92,11,Proestrus,
+7/19/2017 9:42,3/27/2017,92,12,Estrus,not clear
+7/19/2017 9:43,3/27/2017,93,1,Diestrus,late metestrus
+7/19/2017 9:45,3/27/2017,93,2,Metestrus,between metestrus and diestrus
+7/19/2017 9:46,3/27/2017,93,3,Estrus,late proestrus
+7/19/2017 9:46,3/27/2017,93,4,Proestrus,
+7/19/2017 9:47,3/27/2017,93,5,Proestrus,
+7/19/2017 9:48,3/27/2017,93,6,Diestrus,
+7/19/2017 9:49,3/27/2017,93,7,Proestrus,
+7/19/2017 9:50,3/27/2017,93,8,Metestrus,
+7/19/2017 9:52,3/27/2017,93,9,Diestrus,early proestrus
+7/19/2017 9:53,3/27/2017,93,10,Proestrus,between proestrus and diestrus
+7/19/2017 9:54,3/27/2017,93,11,Estrus,
+7/19/2017 9:55,3/27/2017,93,12,Proestrus,late diestrus
+7/19/2017 9:57,3/27/2017,94,1,Proestrus,
+7/19/2017 9:59,3/27/2017,94,2,Diestrus,
+7/19/2017 10:00,3/27/2017,94,3,Proestrus,between proestrus and estrus
+7/19/2017 10:01,3/27/2017,94,4,Proestrus,
+7/19/2017 10:01,3/27/2017,94,5,Estrus,
+7/19/2017 10:02,3/27/2017,94,6,Proestrus,
+7/19/2017 10:02,3/27/2017,94,7,Diestrus,
+7/19/2017 10:03,3/27/2017,94,8,Metestrus,
+7/19/2017 10:04,3/27/2017,94,9,Proestrus,
+7/19/2017 10:05,3/27/2017,94,10,Estrus,
+7/19/2017 10:06,3/27/2017,94,11,Estrus,
+7/19/2017 10:07,3/27/2017,94,12,Metestrus,
+7/19/2017 10:13,3/28/2017,91,1,Diestrus,
+7/19/2017 10:14,3/28/2017,91,2,Metestrus,
+7/19/2017 10:17,3/28/2017,91,3,Estrus,late proestrus
+7/19/2017 10:18,3/28/2017,91,4,Proestrus,late diestrus
+7/19/2017 10:19,3/28/2017,91,5,Diestrus,
+7/19/2017 10:20,3/28/2017,91,6,Diestrus,
+7/19/2017 10:21,3/28/2017,91,7,Estrus,
+7/19/2017 10:21,3/28/2017,91,8,Proestrus,
+7/19/2017 10:22,3/28/2017,91,9,Estrus,
+7/19/2017 10:23,3/28/2017,91,10,Proestrus,
+7/19/2017 10:24,3/28/2017,91,11,Metestrus,between metestrus and diestrus
+7/19/2017 10:25,3/28/2017,91,12,Estrus,
+7/19/2017 10:26,3/28/2017,92,1,Proestrus,
+7/19/2017 10:27,3/28/2017,92,2,Estrus,
+7/19/2017 10:27,3/28/2017,92,3,Proestrus,
+7/19/2017 10:28,3/28/2017,92,4,Estrus,
+7/19/2017 10:28,3/28/2017,92,5,Estrus,
+7/19/2017 10:29,3/28/2017,92,6,Proestrus,
+7/19/2017 10:29,3/28/2017,92,7,Metestrus,
+7/19/2017 10:30,3/28/2017,92,8,Proestrus,early estrus
+7/19/2017 10:31,3/28/2017,92,9,Diestrus,late metestrus
+7/19/2017 10:32,3/28/2017,92,10,Estrus,between proestrus and estrus
+7/19/2017 10:32,3/28/2017,92,11,Proestrus,
+7/19/2017 10:33,3/28/2017,92,12,No smear/Not clear (elaborate in notes),posssibly metestrus but it is not clear
+7/19/2017 10:35,3/28/2017,93,1,Estrus,
+7/19/2017 10:35,3/28/2017,93,2,Metestrus,
+7/19/2017 10:37,3/28/2017,93,3,Estrus,late proestrus
+7/19/2017 10:37,3/28/2017,93,4,Diestrus,
+7/19/2017 10:40,3/28/2017,93,5,Proestrus,
+7/19/2017 10:45,3/28/2017,93,6,No smear/Not clear (elaborate in notes),
+7/19/2017 10:46,3/28/2017,93,7,Proestrus,early estrus
+7/19/2017 10:47,3/28/2017,93,8,Diestrus,late metestrus
+7/19/2017 10:48,3/28/2017,93,9,Proestrus,
+7/19/2017 10:49,3/28/2017,93,10,Proestrus,early estrus
+7/19/2017 10:49,3/28/2017,93,11,Estrus,
+7/19/2017 10:50,3/28/2017,93,12,Estrus,late proestrus
+7/19/2017 11:33,3/28/2017,94,1,Proestrus,early estrus
+7/19/2017 11:35,3/28/2017,94,2,Diestrus,early proestrus
+7/19/2017 11:35,3/28/2017,94,3,Estrus,
+7/19/2017 11:36,3/28/2017,94,4,Proestrus,
+7/19/2017 11:37,3/28/2017,94,5,Estrus,
+7/19/2017 11:37,3/28/2017,94,6,Proestrus,
+7/19/2017 11:37,3/28/2017,94,7,Proestrus,
+7/19/2017 11:38,3/28/2017,94,8,Diestrus,
+7/19/2017 12:00,3/28/2017,94,9,Proestrus,
+7/19/2017 12:01,3/28/2017,94,10,Estrus,early metestrus
+7/19/2017 12:08,3/28/2017,94,11,Metestrus,
+7/19/2017 12:14,3/28/2017,94,12,Diestrus,between diestrus and proestrus
+7/19/2017 12:17,3/29/2017,91,1,Proestrus,
+7/19/2017 12:18,3/29/2017,91,2,Diestrus,
+7/19/2017 12:23,3/29/2017,91,3,Estrus,between proestrus and estrus
+7/19/2017 12:23,3/29/2017,91,4,Proestrus,
+7/19/2017 12:25,3/29/2017,91,5,Proestrus,between proestrus and diestrus
+7/19/2017 12:26,3/29/2017,91,6,Proestrus,early estrus
+7/19/2017 12:27,3/29/2017,91,7,Estrus,
+7/19/2017 12:28,3/29/2017,91,8,Proestrus,between diestrus and proestrus
+7/19/2017 12:29,3/29/2017,91,9,Proestrus,
+7/19/2017 12:30,3/29/2017,91,10,Proestrus,between proestrus and diestrus
+7/19/2017 12:31,3/29/2017,91,11,Diestrus,
+7/19/2017 12:31,3/29/2017,91,12,Estrus,
+7/19/2017 12:33,3/29/2017,92,1,Proestrus,between proestrus and estrus
+7/19/2017 12:35,3/29/2017,92,2,Metestrus,between metestrus and diestrus
+7/19/2017 12:36,3/29/2017,92,3,Estrus,between proestrus and estrus
+7/19/2017 12:36,3/29/2017,92,4,Estrus,
+7/19/2017 12:40,3/29/2017,92,5,Metestrus,between metestrus and diestrus
+7/19/2017 12:41,3/29/2017,92,6,Proestrus,
+7/19/2017 12:43,3/29/2017,92,7,Metestrus,
+7/19/2017 12:45,3/29/2017,92,8,Proestrus,
+7/19/2017 12:46,3/29/2017,92,9,Proestrus,
+7/19/2017 12:46,3/29/2017,92,10,Estrus,
+7/19/2017 12:47,3/29/2017,92,11,Proestrus,
+7/19/2017 12:48,3/29/2017,92,12,Metestrus,
+7/19/2017 12:49,3/29/2017,93,1,Estrus,
+7/19/2017 12:50,3/29/2017,93,2,Metestrus,
+7/19/2017 12:51,3/29/2017,93,3,Estrus,
+7/19/2017 12:52,3/29/2017,93,4,Diestrus,late diestrus
+7/19/2017 12:55,3/29/2017,93,5,Proestrus,
+7/19/2017 12:55,3/29/2017,93,6,Estrus,late proestrus
+7/19/2017 13:47,3/29/2017,93,7,Proestrus,early estrus
+7/19/2017 12:56,3/29/2017,93,8,Proestrus,between proestrus and estrus
+7/19/2017 12:57,3/29/2017,93,9,Estrus,late proestrus
+7/19/2017 13:04,3/29/2017,93,10,Estrus,
+7/19/2017 13:04,3/29/2017,93,11,Estrus,
+7/19/2017 13:05,3/29/2017,93,12,Estrus,
+7/19/2017 13:12,3/29/2017,94,1,Proestrus,early estrus
+7/19/2017 13:13,3/29/2017,94,2,Proestrus,late diestrus
+7/19/2017 13:13,3/29/2017,94,3,Estrus,
+7/19/2017 13:15,3/29/2017,94,4,Proestrus,
+7/19/2017 13:15,3/29/2017,94,5,Estrus,
+7/19/2017 13:16,3/29/2017,94,6,Estrus,
+7/19/2017 13:16,3/29/2017,94,7,Proestrus,
+7/19/2017 13:18,3/29/2017,94,8,Proestrus,
+7/19/2017 13:19,3/29/2017,94,9,Proestrus,
+7/19/2017 13:20,3/29/2017,94,10,Estrus,
+7/19/2017 13:21,3/29/2017,94,11,Metestrus,
+7/19/2017 13:22,3/29/2017,94,12,Diestrus,
+7/19/2017 13:23,3/30/2017,91,1,Estrus,
+7/19/2017 13:25,3/30/2017,91,2,No smear/Not clear (elaborate in notes),
+7/19/2017 13:26,3/30/2017,91,3,Estrus,
+7/19/2017 13:26,3/30/2017,91,4,Estrus,
+7/19/2017 13:27,3/30/2017,91,5,Proestrus,late diestrus
+7/19/2017 13:27,3/30/2017,91,6,Estrus,
+7/19/2017 13:28,3/30/2017,91,7,Estrus,
+7/19/2017 13:29,3/30/2017,91,8,Proestrus,
+7/19/2017 13:30,3/30/2017,91,9,Proestrus,
+7/19/2017 13:30,3/30/2017,91,10,Proestrus,late estrus
+7/19/2017 13:31,3/30/2017,91,11,Proestrus,
+7/19/2017 13:31,3/30/2017,91,12,Estrus,early metestrus
+7/19/2017 13:32,3/30/2017,92,1,Estrus,
+7/19/2017 13:32,3/30/2017,92,2,Metestrus,
+7/19/2017 13:33,3/30/2017,92,3,Estrus,
+7/19/2017 13:33,3/30/2017,92,4,Metestrus,
+7/19/2017 13:35,3/30/2017,92,5,Metestrus,
+7/19/2017 13:36,3/30/2017,92,6,Proestrus,
+7/19/2017 13:36,3/30/2017,92,7,Metestrus,
+7/19/2017 13:37,3/30/2017,92,8,Estrus,late proestrus
+7/19/2017 13:39,3/30/2017,92,9,Proestrus,
+7/19/2017 13:39,3/30/2017,92,10,Metestrus,
+7/19/2017 13:40,3/30/2017,92,11,Proestrus,
+7/19/2017 13:40,3/30/2017,92,12,Diestrus,
+7/19/2017 13:41,3/30/2017,93,1,Estrus,
+7/19/2017 13:41,3/30/2017,93,2,Estrus,
+7/19/2017 13:41,3/30/2017,93,3,Metestrus,
+7/19/2017 13:42,3/30/2017,93,4,Diestrus,
+7/19/2017 13:44,3/30/2017,93,5,Proestrus,early estrus
+7/19/2017 13:46,3/30/2017,93,6,Metestrus,
+7/19/2017 13:47,3/30/2017,93,7,Estrus,
+7/19/2017 13:49,3/30/2017,93,8,Proestrus,
+7/19/2017 13:50,3/30/2017,93,9,Estrus,
+7/19/2017 13:51,3/30/2017,93,10,Metestrus,
+7/19/2017 13:51,3/30/2017,93,11,Metestrus,
+7/19/2017 13:51,3/30/2017,93,12,Estrus,
+7/19/2017 13:53,3/30/2017,94,1,Estrus,
+7/19/2017 13:54,3/30/2017,94,2,Proestrus,between proestrus and estrus
+7/19/2017 13:54,3/30/2017,94,3,Estrus,early metestrus
+7/19/2017 13:55,3/30/2017,94,4,No smear/Not clear (elaborate in notes),
+7/19/2017 13:56,3/30/2017,94,5,Metestrus,
+7/19/2017 13:56,3/30/2017,94,6,Metestrus,
+7/19/2017 13:57,3/30/2017,94,7,Proestrus,between proestrus and estrus
+7/19/2017 13:57,3/30/2017,94,8,Proestrus,
+7/19/2017 13:58,3/30/2017,94,9,Proestrus,between proestrus and estrus
+7/19/2017 13:59,3/30/2017,94,10,Metestrus,
+7/19/2017 13:59,3/30/2017,94,11,Metestrus,
+7/19/2017 14:00,3/30/2017,94,12,Proestrus,
+7/19/2017 14:01,3/31/2017,91,1,Estrus,
+7/19/2017 14:02,3/31/2017,91,2,Proestrus,
+7/19/2017 14:03,3/31/2017,91,3,Estrus,
+7/19/2017 14:03,3/31/2017,91,4,Estrus,
+7/19/2017 14:04,3/31/2017,91,5,Proestrus,
+7/19/2017 14:05,3/31/2017,91,6,Estrus,
+7/19/2017 14:05,3/31/2017,91,7,Metestrus,
+7/19/2017 14:07,3/31/2017,91,8,Proestrus,early estrus
+7/19/2017 14:07,3/31/2017,91,9,Proestrus,
+7/19/2017 14:08,3/31/2017,91,10,Estrus,
+7/19/2017 14:09,3/31/2017,91,11,Proestrus,early estrus
+7/19/2017 14:09,3/31/2017,91,12,Metestrus,
+7/19/2017 14:10,3/31/2017,92,1,Estrus,early metestrus
+7/19/2017 14:12,3/31/2017,92,2,No smear/Not clear (elaborate in notes),
+7/19/2017 14:13,3/31/2017,92,3,Estrus,early metestrus
+7/19/2017 14:15,3/31/2017,92,4,Metestrus,
+7/19/2017 14:16,3/31/2017,92,5,Metestrus,
+7/19/2017 14:16,3/31/2017,92,6,Estrus,
+7/19/2017 14:17,3/31/2017,92,7,Metestrus,
+7/19/2017 14:17,3/31/2017,92,8,Estrus,
+7/19/2017 14:20,3/31/2017,92,9,Proestrus,between diestrus and proestrus
+7/19/2017 14:21,3/31/2017,92,10,Diestrus,
+7/19/2017 14:21,3/31/2017,92,11,Proestrus,early estrus
+7/19/2017 14:22,3/31/2017,92,12,Diestrus,
+7/19/2017 14:23,3/31/2017,93,1,Estrus,
+7/19/2017 14:23,3/31/2017,93,2,Metestrus,
+7/19/2017 14:24,3/31/2017,93,3,Metestrus,
+7/19/2017 14:24,3/31/2017,93,4,Proestrus,
+7/19/2017 14:26,3/31/2017,93,5,No smear/Not clear (elaborate in notes),
+7/19/2017 14:26,3/31/2017,93,6,Diestrus,late metestrus
+7/19/2017 14:27,3/31/2017,93,7,Metestrus,between metestrus and diestrus
+7/19/2017 14:28,3/31/2017,93,8,Proestrus,
+7/19/2017 14:29,3/31/2017,93,9,Estrus,
+7/19/2017 14:29,3/31/2017,93,10,Metestrus,between metestrus and diestrus
+7/19/2017 14:30,3/31/2017,93,11,Metestrus,
+7/19/2017 14:30,3/31/2017,93,12,Estrus,
+7/19/2017 14:31,3/31/2017,94,1,Estrus,
+7/19/2017 14:32,3/31/2017,94,2,Proestrus,
+7/19/2017 14:32,3/31/2017,94,3,Estrus,early metestrus
+7/19/2017 14:33,3/31/2017,94,4,Proestrus,
+7/19/2017 14:34,3/31/2017,94,5,Metestrus,
+7/19/2017 14:35,3/31/2017,94,6,Proestrus,
+7/19/2017 14:35,3/31/2017,94,7,Estrus,
+7/19/2017 14:36,3/31/2017,94,8,Proestrus,
+7/19/2017 14:36,3/31/2017,94,9,Estrus,
+7/19/2017 14:37,3/31/2017,94,10,Metestrus,
+7/19/2017 14:37,3/31/2017,94,11,Diestrus,between metestrus and diestrus
+7/19/2017 14:37,3/31/2017,94,12,Proestrus,
+7/19/2017 14:40,4/1/2017,91,1,Metestrus,
+7/19/2017 14:40,4/1/2017,91,2,Estrus,
+7/19/2017 14:40,4/1/2017,91,3,Estrus,
+7/19/2017 14:41,4/1/2017,91,4,Metestrus,
+7/19/2017 14:42,4/1/2017,91,5,Proestrus,early estrus
+7/19/2017 14:43,4/1/2017,91,6,Estrus,early metestrus
+7/19/2017 14:43,4/1/2017,91,7,Metestrus,
+7/19/2017 14:44,4/1/2017,91,8,No smear/Not clear (elaborate in notes),
+7/19/2017 14:45,4/1/2017,91,9,Proestrus,
+7/19/2017 14:45,4/1/2017,91,10,Estrus,
+7/19/2017 14:46,4/1/2017,91,11,Proestrus,early estrus
+7/19/2017 14:46,4/1/2017,91,12,Metestrus,between estrus and metestrus
+7/19/2017 14:51,4/1/2017,92,1,Metestrus,
+7/19/2017 14:52,4/1/2017,92,2,Metestrus,
+7/19/2017 14:53,4/1/2017,92,3,Metestrus,between metestrus and diestrus
+7/19/2017 14:53,4/1/2017,92,4,Diestrus,
+7/19/2017 14:54,4/1/2017,92,5,Metestrus,
+7/19/2017 14:54,4/1/2017,92,6,Diestrus,
+7/19/2017 14:55,4/1/2017,92,7,Metestrus,
+7/19/2017 14:55,4/1/2017,92,8,Estrus,
+7/19/2017 15:00,4/1/2017,92,9,Proestrus,
+7/19/2017 15:01,4/1/2017,92,10,Estrus,late proestrus
+7/19/2017 15:01,4/1/2017,92,11,Proestrus,
+7/19/2017 15:02,4/1/2017,92,12,Estrus,
+7/20/2017 8:59,4/1/2017,93,1,Estrus,early metestrus
+7/20/2017 9:01,4/1/2017,93,2,Metestrus,
+7/20/2017 9:05,4/1/2017,93,3,Metestrus,
+7/20/2017 9:05,4/1/2017,93,4,Estrus,
+7/20/2017 9:06,4/1/2017,93,5,Estrus,late proestrus
+7/20/2017 9:07,4/1/2017,93,6,Estrus,
+7/20/2017 9:07,4/1/2017,93,7,Metestrus,
+7/20/2017 9:08,4/1/2017,93,8,Proestrus,
+7/20/2017 9:08,4/1/2017,93,9,Estrus,
+7/20/2017 9:09,4/1/2017,93,10,Metestrus,
+7/20/2017 9:11,4/1/2017,93,11,No smear/Not clear (elaborate in notes),nothing really here. possibly metestrus
+7/20/2017 9:13,4/1/2017,93,12,No smear/Not clear (elaborate in notes),
+7/20/2017 9:14,4/1/2017,94,1,Metestrus,late estrus
+7/20/2017 9:15,4/1/2017,94,2,Estrus,between proestrus and estrus
+7/20/2017 9:15,4/1/2017,94,3,Estrus,early metestrus
+7/20/2017 9:16,4/1/2017,94,4,Estrus,
+7/20/2017 9:18,4/1/2017,94,5,Metestrus,
+7/20/2017 9:18,4/1/2017,94,6,Estrus,
+7/20/2017 9:19,4/1/2017,94,7,Estrus,
+7/20/2017 9:20,4/1/2017,94,8,Proestrus,early estrus
+7/20/2017 9:20,4/1/2017,94,9,Estrus,
+7/20/2017 9:22,4/1/2017,94,10,No smear/Not clear (elaborate in notes),
+7/20/2017 9:23,4/1/2017,94,11,Proestrus,
+7/20/2017 9:23,4/1/2017,94,12,Estrus,
+7/20/2017 9:25,4/2/2017,91,1,Metestrus,
+7/20/2017 9:25,4/2/2017,91,2,Estrus,
+7/20/2017 9:26,4/2/2017,91,3,Metestrus,
+7/20/2017 9:26,4/2/2017,91,4,Metestrus,
+7/20/2017 9:27,4/2/2017,91,5,Estrus,
+7/20/2017 9:29,4/2/2017,91,6,Metestrus,
+7/20/2017 9:30,4/2/2017,91,7,Diestrus,
+7/20/2017 9:31,4/2/2017,91,8,Proestrus,
+7/20/2017 9:31,4/2/2017,91,9,Proestrus,
+7/20/2017 9:32,4/2/2017,91,10,Estrus,
+7/20/2017 9:33,4/2/2017,91,11,Proestrus,between proestrus and diestrus
+7/20/2017 9:34,4/2/2017,91,12,Metestrus,
+7/20/2017 9:37,4/2/2017,92,1,No smear/Not clear (elaborate in notes),
+7/20/2017 9:37,4/2/2017,92,2,Diestrus,
+7/20/2017 9:38,4/2/2017,92,3,Diestrus,late metestrus
+7/20/2017 9:41,4/2/2017,92,4,Proestrus,
+7/20/2017 9:42,4/2/2017,92,5,Metestrus,
+7/20/2017 9:43,4/2/2017,92,6,Diestrus,early proestrus
+7/20/2017 9:43,4/2/2017,92,7,Diestrus,
+7/20/2017 9:44,4/2/2017,92,8,Estrus,
+7/20/2017 9:44,4/2/2017,92,9,Estrus,
+7/20/2017 9:45,4/2/2017,92,10,Proestrus,
+7/20/2017 9:46,4/2/2017,92,11,Estrus,between proestrus and estrus
+7/20/2017 9:46,4/2/2017,92,12,Estrus,
+7/20/2017 9:47,4/2/2017,93,1,Metestrus,
+7/20/2017 9:53,4/2/2017,93,2,Diestrus,
+7/20/2017 9:53,4/2/2017,93,3,Diestrus,
+7/20/2017 9:54,4/2/2017,93,4,Estrus,
+7/20/2017 9:55,4/2/2017,93,5,Estrus,
+7/20/2017 9:56,4/2/2017,93,6,Estrus,
+7/20/2017 9:56,4/2/2017,93,7,Metestrus,
+7/20/2017 9:56,4/2/2017,93,8,Proestrus,early estrus
+7/20/2017 9:57,4/2/2017,93,9,Estrus,
+7/20/2017 9:58,4/2/2017,93,10,Diestrus,
+7/20/2017 9:59,4/2/2017,93,11,Diestrus,
+7/20/2017 10:00,4/2/2017,93,12,Metestrus,
+7/20/2017 10:00,4/2/2017,94,1,Metestrus,
+7/20/2017 10:01,4/2/2017,94,2,Estrus,
+7/20/2017 10:01,4/2/2017,94,3,Estrus,
+7/20/2017 10:01,4/2/2017,94,4,Metestrus,
+7/20/2017 10:02,4/2/2017,94,5,Estrus,
+7/20/2017 10:03,4/2/2017,94,6,Estrus,
+7/20/2017 10:03,4/2/2017,94,7,Metestrus,
+7/20/2017 10:04,4/2/2017,94,8,Metestrus,
+7/20/2017 10:05,4/2/2017,94,9,Metestrus,
+7/20/2017 10:42,4/2/2017,94,10,Diestrus,
+7/20/2017 10:06,4/2/2017,94,11,Estrus,
+7/20/2017 10:07,4/2/2017,94,12,Proestrus,
+7/20/2017 10:08,4/3/2017,91,1,Metestrus,
+7/20/2017 10:09,4/3/2017,91,2,Estrus,
+7/20/2017 10:11,4/3/2017,91,3,Diestrus,
+7/20/2017 10:11,4/3/2017,91,4,Metestrus,
+7/20/2017 10:12,4/3/2017,91,5,Metestrus,
+7/20/2017 10:13,4/3/2017,91,6,Metestrus,
+7/20/2017 10:14,4/3/2017,91,7,Diestrus,early proestrus
+7/20/2017 10:14,4/3/2017,91,8,Estrus,late metestrus
+7/20/2017 10:15,4/3/2017,91,9,Proestrus,
+7/20/2017 10:16,4/3/2017,91,10,Estrus,
+7/20/2017 10:16,4/3/2017,91,11,Proestrus,
+7/20/2017 10:16,4/3/2017,91,12,Metestrus,
+7/20/2017 10:17,4/3/2017,92,1,Metestrus,
+7/20/2017 10:18,4/3/2017,92,2,Diestrus,
+7/20/2017 10:19,4/3/2017,92,3,Proestrus,
+7/20/2017 10:20,4/3/2017,92,4,Proestrus,
+7/20/2017 10:21,4/3/2017,92,5,Diestrus,
+7/20/2017 10:21,4/3/2017,92,6,Diestrus,between diestrus and proestrus
+7/20/2017 10:23,4/3/2017,92,7,Proestrus,
+7/20/2017 10:23,4/3/2017,92,8,Metestrus,
+7/20/2017 10:24,4/3/2017,92,9,Estrus,
+7/20/2017 10:24,4/3/2017,92,10,Proestrus,
+7/20/2017 10:25,4/3/2017,92,11,Estrus,
+7/20/2017 10:25,4/3/2017,92,12,Estrus,early metestrus
+7/20/2017 10:26,4/3/2017,93,1,Metestrus,
+7/20/2017 10:27,4/3/2017,93,2,Estrus,
+7/20/2017 10:28,4/3/2017,93,3,Proestrus,
+7/20/2017 10:28,4/3/2017,93,4,Estrus,
+7/20/2017 10:30,4/3/2017,93,5,Metestrus,
+7/20/2017 10:30,4/3/2017,93,6,Metestrus,
+7/20/2017 10:31,4/3/2017,93,7,Metestrus,
+7/20/2017 10:31,4/3/2017,93,8,Proestrus,early estrus
+7/20/2017 10:32,4/3/2017,93,9,Estrus,
+7/20/2017 10:33,4/3/2017,93,10,Diestrus,early proestrus
+7/20/2017 10:34,4/3/2017,93,11,Diestrus,
+7/20/2017 10:34,4/3/2017,93,12,Metestrus,
+7/20/2017 10:35,4/3/2017,94,1,No smear/Not clear (elaborate in notes),
+7/20/2017 10:36,4/3/2017,94,2,Estrus,
+7/20/2017 10:36,4/3/2017,94,3,Estrus,
+7/20/2017 10:37,4/3/2017,94,4,Diestrus,early proestrus
+7/20/2017 10:38,4/3/2017,94,5,Estrus,
+7/20/2017 10:38,4/3/2017,94,6,Metestrus,
+7/20/2017 10:39,4/3/2017,94,7,Metestrus,
+7/20/2017 10:40,4/3/2017,94,8,Diestrus,
+7/20/2017 10:40,4/3/2017,94,9,Diestrus,
+7/20/2017 10:43,4/3/2017,94,10,No smear/Not clear (elaborate in notes),
+7/20/2017 10:43,4/3/2017,94,11,Proestrus,
+7/20/2017 10:44,4/3/2017,94,12,Proestrus,between proestrus and estrus
+7/20/2017 10:44,4/4/2017,93,1,Metestrus,
+7/20/2017 10:45,4/4/2017,93,2,Metestrus,
+7/20/2017 10:46,4/4/2017,93,3,Metestrus,
+7/20/2017 10:46,4/4/2017,93,4,Metestrus,
+7/20/2017 10:47,4/4/2017,93,5,Metestrus,
+7/20/2017 10:47,4/4/2017,93,6,Metestrus,
+7/20/2017 10:48,4/4/2017,93,7,Metestrus,
+7/20/2017 10:49,4/4/2017,93,8,Diestrus,
+7/20/2017 10:50,4/4/2017,93,9,Estrus,
+7/20/2017 10:50,4/4/2017,93,10,Proestrus,
+7/20/2017 10:51,4/4/2017,93,11,Proestrus,early estrus
+7/20/2017 10:51,4/4/2017,93,12,Diestrus,
+7/20/2017 10:52,4/4/2017,94,1,Diestrus,
+7/20/2017 10:52,4/4/2017,94,2,Metestrus,
+7/20/2017 10:52,4/4/2017,94,3,Estrus,
+7/20/2017 10:53,4/4/2017,94,4,Diestrus,early proestrus
+7/20/2017 10:54,4/4/2017,94,5,Estrus,
+7/20/2017 10:54,4/4/2017,94,6,Proestrus,
+7/20/2017 10:56,4/4/2017,94,7,Estrus,
+7/20/2017 10:56,4/4/2017,94,8,Diestrus,
+7/20/2017 10:57,4/4/2017,94,9,Proestrus,between proestrus and diestrus
+7/20/2017 10:58,4/4/2017,94,10,Diestrus,beween diestrus and proestrus
+7/20/2017 10:58,4/4/2017,94,11,Estrus,
+7/20/2017 10:58,4/4/2017,94,12,Proestrus,
